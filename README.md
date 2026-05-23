@@ -125,6 +125,7 @@ You might encounter some bugs while using this app. You are more than welcome to
 Useful resources and dependencies that are used in Modern Portfolio.
 
 <!--- DEPENDENCIES_START --->
+- [@emailjs/browser](https://www.npmjs.com/package/@emailjs/browser): ^4.4.1
 - [@next/font](https://www.npmjs.com/package/@next/font): ^13.4.4
 - [autoprefixer](https://www.npmjs.com/package/autoprefixer): ^10.4.14
 - [eslint](https://www.npmjs.com/package/eslint): 8.41.0
