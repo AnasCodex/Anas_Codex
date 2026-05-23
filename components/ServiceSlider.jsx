@@ -1,9 +1,9 @@
 import {
-  RxCrop,
-  RxPencil2,
   RxDesktop,
-  RxReader,
-  RxRocket,
+  RxLayers,
+  RxCode,
+  RxSketchLogo,
+  RxLightningBolt,
   RxArrowTopRight,
 } from "react-icons/rx";
 import { FreeMode, Pagination } from "swiper";
@@ -15,29 +15,34 @@ import "swiper/css/pagination";
 
 const serviceData = [
   {
-    Icon: RxCrop,
-    title: "Branding",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  },
-  {
-    Icon: RxPencil2,
-    title: "Design",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  },
-  {
     Icon: RxDesktop,
-    title: "Development",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Web Experience",
+    description:
+      "Modern, responsive websites focused on performance, structure, and strong digital presence.",
   },
   {
-    Icon: RxReader,
-    title: "Copywriting",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    Icon: RxCode,
+    title: "Creative Frontend",
+    description:
+      "Interactive frontend experiences using React, Next.js, motion, and modern web technologies.",
   },
   {
-    Icon: RxRocket,
-    title: "SEO",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    Icon: RxSketchLogo,
+    title: "UI / UX Design",
+    description:
+      "User-centered interfaces designed for clarity, usability, and seamless digital interaction.",
+  },
+  {
+    Icon: RxLayers,
+    title: "Brand Experience",
+    description:
+      "Digital interfaces that reflect the brand identity through clean visuals, hierarchy, and consistency.",
+  },
+  {
+    Icon: RxLightningBolt,
+    title: "Performance Optimization",
+    description:
+      "Optimizing websites for speed, responsiveness, SEO, and smooth user experience across devices.",
   },
 ];
 

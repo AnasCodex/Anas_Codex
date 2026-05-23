@@ -10,24 +10,24 @@ import "swiper/css/pagination";
 const testimonialData = [
   {
     image: "/t-avt-1.png",
-    name: "Anne Smith",
-    position: "Customer",
+    name: "@ Ibrahim Taha",
+    position: "General Manager of Nerdo Yemen",
     message:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum expedita odit beatae, cupiditate saepe quam officia aut placeat quas neque!",
+      "Simply the best! Anas Naser turned our website dreams into reality. Fast, efficient, and a coding wizard. Recommend them for any web project!",
   },
   {
     image: "/t-avt-2.png",
-    name: "Jane Doe",
-    position: "Customer",
+    name: "Himyar Al-Jedri",
+    position: "Product Manager of BlackGem",
     message:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum expedita odit beatae, cupiditate saepe quam officia aut placeat quas neque!",
+      "Anas Naser is a coding maestro! They crafted a sleek website for us, and we couldn't be happier. Quick, precise, and a pleasure to work with.",
   },
   {
     image: "/t-avt-3.png",
-    name: "Jhon Doe",
-    position: "Customer",
+    name: "Mohammed Aghbari",
+    position: "General Manager of Meem Graphics",
     message:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum expedita odit beatae, cupiditate saepe quam officia aut placeat quas neque!",
+      "Outstanding work! Anas Naser elevated our website to new heights. Professional, efficient, and a pleasure to work with.",
   },
 ];
 
@@ -54,6 +54,7 @@ const TestimonialSlider = () => {
                     width={100}
                     height={100}
                     alt={person.name}
+                    className="rounded-full"
                   />
                 </div>
 

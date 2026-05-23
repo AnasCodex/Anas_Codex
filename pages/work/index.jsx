@@ -29,8 +29,9 @@ const Work = () => {
               exit="hidden"
               className="mb-4 max-w-[400px] mx-auto lg:mx-0"
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-              tempora eligendi, quisquam tempore sint reiciendis.
+              A selection of modern digital experiences focused on branding,
+              frontend development, and premium user experience for businesses
+              and startups.
             </motion.p>
           </div>
 
