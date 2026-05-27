@@ -34,7 +34,7 @@ const Home = () => {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="max-w-sm xl:max-w-xl mx-auto xl:mx-0 mb-10 xl:mb-16"
+            className="max-w-sm xl:max-w-[35rem] mx-auto xl:mx-0 mb-10 xl:mb-16"
           >
             Creative frontend specialist with 5+ years of experience building
             modern, visually impactful, and high-performance digital experiences
