@@ -44,7 +44,7 @@ const Home = () => {
         </div>
       </div>
       {/* image */}
-      <div className="w-[1280px] h-full absolute right-0 bottom-0">
+      <div className="w-full h-full absolute right-0 bottom-0">
         {/* bg img */}
         <div
           role="img"
