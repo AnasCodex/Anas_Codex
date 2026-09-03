@@ -136,7 +136,7 @@ const About = () => {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="text-[30px] font-bold leading-[35px] mb-6 max-w-[480px] mx-auto xl:mx-0"
+            className="text-[25px] sm:text-[30px] font-bold leading-[35px] mt-[40px] sm:mt-0 mb-3 sm:mb-6 max-w-[480px] mx-auto xl:mx-0"
           >
             Creative <span className="text-accent">digital experiences</span>{" "}
             built with strategy, branding, and modern frontend development.
