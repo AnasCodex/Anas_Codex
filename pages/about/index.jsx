@@ -147,7 +147,7 @@ const About = () => {
             animate="show"
             className="max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0"
           >
-            Over the past 4+ years, I've worked with agencies, startups, and
+            Over the past 7+ years, I've worked with agencies, startups, and
             businesses to create modern websites and digital experiences that
             combine visual quality, performance, and user-focused design.
           </motion.p>
