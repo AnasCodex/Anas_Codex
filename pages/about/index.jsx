@@ -48,7 +48,8 @@ export const aboutData = [
     title: "experience",
     info: [
       {
-        title: "Creative Frontend & Brand Experience Specialist - ATEQANIA",
+        title:
+          "Creative Frontend & Brand Experience Specialist - Trust and Build",
         stage: "2025 - Present",
       },
 
@@ -73,27 +74,27 @@ export const aboutData = [
     title: "projects",
     info: [
       {
-        title: "MotionLab",
+        title: "MotionLab:",
         stage: "motionlab.sa",
       },
 
       {
-        title: "Emad App",
+        title: "Emad App:",
         stage: "emad-app.sa",
       },
 
       {
-        title: "SmarterThan",
+        title: "SmarterThan:",
         stage: "smarterthan.co",
       },
 
       {
-        title: "NEO Build",
+        title: "NEO Build:",
         stage: "neobuild.sa",
       },
 
       {
-        title: "Theqa Technology",
+        title: "Theqa Technology:",
         stage: "theqa-technology.sa",
       },
     ],
@@ -105,7 +106,6 @@ export const aboutData = [
       {
         title:
           "Bachelor Degree in Information Technology - The National University of Yemen",
-        stage: "2017 - 2021",
       },
     ],
   },
@@ -230,7 +230,6 @@ const About = () => {
               >
                 {/* title */}
                 <div className="font-light mb-2 md:mb-0">{item.title}</div>
-                <div className="hidden md:flex">-</div>
                 <div>{item.stage}</div>
 
                 <div className="flex gap-x-4">
