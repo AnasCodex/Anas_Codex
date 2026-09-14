@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-// icons
 import {
   HiHome,
   HiUser,
@@ -11,7 +10,6 @@ import {
   HiEnvelope,
 } from "react-icons/hi2";
 
-// nav data
 export const navData = [
   { name: "home", path: "/", Icon: HiHome },
   { name: "about", path: "/about", Icon: HiUser },
@@ -33,40 +31,133 @@ const Nav = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="flex flex-col items-center xl:justify-center gap-y-4 fixed h-max bottom-0 mt-auto xl:right-[2%] z-50 top-0 w-full xl:w-16 xl:max-w-md xl:h-screen">
-      <div className="flex w-full xl:flex-col items-center justify-between xl:justify-center gap-y-10 px-4 md:px-40 xl:px-0 h-[80px] xl:h-max py-8 bg-white/10 backdrop-blur-sm text-3xl xl:text-xl xl:rounded-full">
-        {navData.map((link, i) => (
-          <Link
-            className={`${
-              link.path === pathname && "text-accent"
-            } relative flex items-center group hover:text-accent transition-all duration-300`}
-            href={link.path}
-            key={i}
-          >
-            {/* tolltip */}
-            <div
-              role="tooltip"
-              className="absolute pr-14 right-0 hidden xl:group-hover:flex"
+    <nav
+      className="
+        fixed
+        bottom-0 left-0
+        z-50
+        w-full
+
+        xl:left-auto
+        xl:right-[2%]
+        xl:top-0
+        xl:bottom-auto
+        xl:flex
+        xl:h-screen
+        xl:w-16
+        xl:items-center
+        xl:justify-center
+      "
+    >
+      <div
+        className="
+          mx-auto
+          flex
+          h-[68px]
+          w-full
+          items-center
+          justify-around
+          border-t border-white/[0.08]
+          bg-primary/80
+          px-3
+          backdrop-blur-xl
+
+          sm:max-w-[520px]
+          sm:rounded-t-2xl
+          sm:px-6
+
+          xl:h-auto
+          xl:w-16
+          xl:max-w-none
+          xl:flex-col
+          xl:justify-center
+          xl:gap-y-8
+          xl:rounded-full
+          xl:border
+          xl:border-white/[0.08]
+          xl:bg-white/10
+          xl:px-0
+          xl:py-6
+        "
+      >
+        {navData.map((link, i) => {
+          const isActive = pathname === link.path;
+
+          return (
+            <Link
+              href={link.path}
+              key={i}
+              aria-label={link.name}
+              className={`
+                group
+                relative
+                flex
+                h-10 w-10
+                items-center
+                justify-center
+                rounded-xl
+                text-[22px]
+                transition-all
+                duration-300
+
+                xl:h-auto
+                xl:w-auto
+                xl:rounded-none
+                xl:text-xl
+
+                ${
+                  isActive
+                    ? "bg-accent/10 text-accent xl:bg-transparent"
+                    : "text-white/55 hover:text-accent"
+                }
+              `}
             >
-              <div className="bg-white relative flex text-primary items-center p-[6px] rounded-[3px]">
-                <div className="text-[12px] leading-none font-semibold capitalize">
-                  {link.name}
-                </div>
-
-                {/* triangle */}
+              {/* tooltip - desktop only */}
+              <div
+                role="tooltip"
+                className="
+                  absolute
+                  right-0
+                  hidden
+                  pr-14
+                  xl:group-hover:flex
+                "
+              >
                 <div
-                  className="border-solid border-l-white border-l-8 border-y-transparent border-y-[6px] border-r-0 absolute -right-2"
-                  aria-hidden
-                />
-              </div>
-            </div>
+                  className="
+                    relative
+                    flex
+                    items-center
+                    rounded-[4px]
+                    bg-white
+                    p-[6px]
+                    text-primary
+                  "
+                >
+                  <div className="text-[12px] font-semibold capitalize leading-none">
+                    {link.name}
+                  </div>
 
-            {/* icon */}
-            <div>
+                  <div
+                    className="
+                      absolute
+                      -right-2
+                      border-y-[6px]
+                      border-l-8
+                      border-r-0
+                      border-solid
+                      border-y-transparent
+                      border-l-white
+                    "
+                    aria-hidden
+                  />
+                </div>
+              </div>
+
               <link.Icon aria-hidden />
-            </div>
-          </Link>
-        ))}
+            </Link>
+          );
+        })}
       </div>
     </nav>
   );

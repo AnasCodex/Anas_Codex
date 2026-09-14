@@ -1,12 +1,10 @@
 import Link from "next/link";
 
 import {
-  RiYoutubeLine,
   RiInstagramLine,
   RiFacebookLine,
   RiLinkedinFill,
   RiGithubLine,
-  RiPinterestLine,
 } from "react-icons/ri";
 
 export const socialData = [
@@ -25,7 +23,6 @@ export const socialData = [
     link: "https://linkedin.com/in/anascodex",
     Icon: RiLinkedinFill,
   },
-
   {
     name: "Github",
     link: "https://github.com/AnasCodex",
@@ -35,7 +32,7 @@ export const socialData = [
 
 const Socials = () => {
   return (
-    <div className="flex items-center gap-x-5 text-lg">
+    <div className="hidden md:flex items-center gap-x-5 text-lg">
       {socialData.map((social, i) => (
         <Link
           key={i}
@@ -50,6 +47,7 @@ const Socials = () => {
           } transition-all duration-300`}
         >
           <social.Icon aria-hidden />
+
           <span className="sr-only">{social.name}</span>
         </Link>
       ))}

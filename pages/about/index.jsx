@@ -187,8 +187,8 @@ const About = () => {
     py-24 sm:py-28 lg:py-32
     text-center xl:text-left
     custom-scrollbar
-    mt-10
-    lg:mt-0
+    my-10
+    lg:my-0
   "
     >
       <Circles />
