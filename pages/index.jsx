@@ -92,6 +92,7 @@ justify-start
             xl:max-w-[680px]
             xl:text-[64px]
             xl:leading-[1.02]
+            mt-3
           "
         >
           Senior Web &
