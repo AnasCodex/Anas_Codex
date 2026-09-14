@@ -20,11 +20,11 @@
 
 @layer base {
   body {
-    @apply bg-secondary overflow-hidden leading-relaxed;
+    @apply bg-secondary overflow-y-auto lg:overflow-hidden leading-relaxed;
   }
 
   .page {
-    @apply w-full h-screen overflow-hidden;
+    @apply w-full min-h-screen overflow-y-auto lg:h-screen lg:overflow-hidden;
   }
 
   .h1 {
@@ -56,4 +56,30 @@
   .textarea {
     @apply w-full h-[180px] p-6 rounded-lg resize-none;
   }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
