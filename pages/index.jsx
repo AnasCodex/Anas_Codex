@@ -31,7 +31,7 @@ const Home = () => {
           flex h-full
           flex-col
           items-center
-pt-[175px]
+pt-[105px]
 sm:pt-[190px]
 justify-start
 
