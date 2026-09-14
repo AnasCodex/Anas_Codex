@@ -126,11 +126,6 @@ export const aboutData = [
         title: "SmarterThan",
         stage: "smarterthan.co",
       },
-
-      {
-        title: "NEO Build",
-        stage: "neobuild.sa",
-      },
     ],
   },
 
