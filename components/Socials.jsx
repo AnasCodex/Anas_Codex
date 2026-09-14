@@ -32,7 +32,7 @@ export const socialData = [
 
 const Socials = () => {
   return (
-    <div className="hidden md:flex items-center gap-x-5 text-lg">
+    <div className=" md:flex items-center gap-x-5 text-lg">
       {socialData.map((social, i) => (
         <Link
           key={i}
