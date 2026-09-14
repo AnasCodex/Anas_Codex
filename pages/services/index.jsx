@@ -53,7 +53,7 @@ const Services = () => {
         bg-primary/30
 
         pt-24
-        pb-[120px]
+        pb-[140px]
 
         sm:pt-28
         sm:pb-[130px]
