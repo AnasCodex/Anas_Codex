@@ -190,8 +190,8 @@ const About = () => {
         sm:pt-28
         lg:py-32
 
-        pb-[70px]
-        sm:pb-[80px]
+        pb-[140px]
+        sm:pb-[150px]
         lg:pb-32
 
         text-center
