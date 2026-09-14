@@ -207,11 +207,11 @@ justify-start
           className="
     absolute
     left-1/2
-    top-[48%]
+    top-[51%]
     z-10
 
-    w-[300px]
-    max-w-[105vw]
+    w-[100%]
+    max-w-[100vw]
 
     -translate-x-1/2
 
