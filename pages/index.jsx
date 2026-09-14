@@ -31,9 +31,9 @@ const Home = () => {
           flex h-full
           flex-col
           items-center
-
+pt-[130px]
 sm:pt-[190px]
-justify-center
+justify-start
 
           text-center
 
@@ -208,7 +208,7 @@ justify-center
           className="
     absolute
     left-1/2
-    top-[51%]
+    bottom-[0%]
     z-10
 
     w-[100%]
