@@ -18,6 +18,11 @@ const Header = () => {
               priority
             />
           </Link>
+
+          {/* socials */}
+          <div className="hidden lg:block">
+            <Socials />
+          </div>
         </div>
       </div>
     </header>
