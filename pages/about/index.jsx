@@ -178,7 +178,19 @@ const About = () => {
   const [index, setIndex] = useState(0);
 
   return (
-    <div className="lg:h-full bg-primary/30 py-32 text-center xl:text-left">
+    <div
+      className="
+    h-full
+    overflow-y-auto
+    lg:overflow-hidden
+    bg-primary/30
+    py-24 sm:py-28 lg:py-32
+    text-center xl:text-left
+    custom-scrollbar
+    mt-10
+    lg:mt-0
+  "
+    >
       <Circles />
 
       {/* avatar img */}
@@ -192,7 +204,18 @@ const About = () => {
         <Avatar />
       </motion.div>
 
-      <div className="container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6">
+      <div
+        className="
+    container mx-auto
+    min-h-full
+    lg:h-full
+    flex flex-col
+    items-center
+    xl:flex-row
+    gap-x-6
+  "
+      >
+        {" "}
         {/* text */}
         <div className="flex-1 flex flex-col justify-center">
           <motion.h2
@@ -200,19 +223,37 @@ const About = () => {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="text-[25px] sm:text-[30px] font-bold leading-[35px] mt-[40px] sm:mt-0 mb-3 sm:mb-6 max-w-[480px] mx-auto xl:mx-0"
+            className="
+      text-[24px] sm:text-[30px]
+      font-bold
+      leading-[1.2]
+      mt-5 sm:mt-0
+      mb-2 sm:mb-4
+      max-w-[480px]
+      mx-auto xl:mx-0
+    "
           >
-            Creative <span className="text-accent">digital experiences.</span>
+            Building <span className="text-accent">web experiences</span> that
+            perform.
           </motion.h2>
+
           <motion.p
             variants={fadeIn("right", 0.4)}
             initial="hidden"
             animate="show"
-            className="max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0"
+            className="
+      max-w-[500px]
+      mx-auto xl:mx-0
+      mb-4 sm:mb-6 xl:mb-10
+      px-2 xl:px-0
+      text-[13px] sm:text-[15px]
+      leading-6
+      text-white/60
+    "
           >
-            Over the past 7+ years, I've worked with agencies, startups, and
-            businesses to create modern websites and digital experiences that
-            combine visual quality, performance, and user-focused design.
+            Senior Web & E-Commerce Developer with 7+ years of experience
+            building responsive websites, online stores, and modern web
+            interfaces.
           </motion.p>
 
           {/* counters */}
@@ -220,49 +261,49 @@ const About = () => {
             variants={fadeIn("right", 0.6)}
             initial="hidden"
             animate="show"
-            className="hidden md:flex md:max-w-xl xl:max-w-none mx-auto xl:mx-0 mb-8"
+            className="
+      hidden sm:flex
+      max-w-xl xl:max-w-none
+      mx-auto xl:mx-0
+      mb-5 xl:mb-8
+    "
           >
-            <div className="flex flex-1 xl:gap-x-6">
+            <div className="grid w-full grid-cols-3 gap-4 xl:gap-6">
               {/* experience */}
-              <div className="relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0">
-                <div className="text-2xl xl:text-4xl font-extrabold text-accent mb-2">
-                  <CountUp start={0} end={4} duration={5} />+
+              <div className="relative after:absolute after:right-0 after:top-0 after:h-full after:w-px after:bg-white/10">
+                <div className="mb-1 text-2xl xl:text-4xl font-extrabold text-accent">
+                  <CountUp start={0} end={7} duration={4} />+
                 </div>
-                <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">
-                  Years of experience.
+
+                <div className="text-[10px] xl:text-xs uppercase tracking-[1px] leading-[1.4] text-white/55">
+                  Years Experience
                 </div>
               </div>
 
-              <div className="relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0">
-                <div className="text-2xl xl:text-4xl font-extrabold text-accent mb-2">
-                  <CountUp start={0} end={15} duration={5} />+
+              {/* websites */}
+              <div className="relative after:absolute after:right-0 after:top-0 after:h-full after:w-px after:bg-white/10">
+                <div className="mb-1 text-2xl xl:text-4xl font-extrabold text-accent">
+                  <CountUp start={0} end={15} duration={4} />+
                 </div>
-                <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">
-                  Web projects.
+
+                <div className="text-[10px] xl:text-xs uppercase tracking-[1px] leading-[1.4] text-white/55">
+                  Websites Built
                 </div>
               </div>
 
-              <div className="relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0">
-                <div className="text-2xl xl:text-4xl font-extrabold text-accent mb-2">
-                  <CountUp start={0} end={5} duration={5} />
+              {/* selected work */}
+              <div>
+                <div className="mb-1 text-2xl xl:text-4xl font-extrabold text-accent">
+                  <CountUp start={0} end={4} duration={4} />
                 </div>
-                <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">
-                  Featured works.
-                </div>
-              </div>
 
-              <div className="relative flex-1">
-                <div className="text-2xl xl:text-4xl font-extrabold text-accent mb-2">
-                  Premium
-                </div>
-                <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">
-                  Brand experience.
+                <div className="text-[10px] xl:text-xs uppercase tracking-[1px] leading-[1.4] text-white/55">
+                  Selected Work
                 </div>
               </div>
             </div>
           </motion.div>
         </div>
-
         {/* info */}
         <motion.div
           variants={fadeIn("left", 0.4)}
@@ -321,12 +362,20 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35 }}
             className="
-      w-full
-      max-h-[480px]
-      overflow-y-auto
-      pr-1 sm:pr-2
-      custom-scrollbar
-    "
+  w-full
+
+  max-h-none
+  overflow-visible
+
+  lg:max-h-[480px]
+  lg:overflow-y-auto
+
+  lg:pr-2
+  custom-scrollbar
+
+  mb-8
+  lg:mb-6
+"
           >
             {/* ================= SKILLS ================= */}
             {aboutData[index].title === "skills" && (
