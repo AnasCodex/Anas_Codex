@@ -180,16 +180,25 @@ const About = () => {
   return (
     <div
       className="
-    h-full
-    overflow-y-auto
-    lg:overflow-hidden
-    bg-primary/30
-    py-24 sm:py-28 lg:py-32
-    text-center xl:text-left
-    custom-scrollbar
-    my-10
-    lg:my-0
-  "
+        h-full
+        overflow-y-auto
+        lg:overflow-hidden
+
+        bg-primary/30
+
+        pt-24
+        sm:pt-28
+        lg:py-32
+
+        pb-[70px]
+        sm:pb-[80px]
+        lg:pb-32
+
+        text-center
+        xl:text-left
+
+        custom-scrollbar
+      "
     >
       <Circles />
 
@@ -206,14 +215,14 @@ const About = () => {
 
       <div
         className="
-    container mx-auto
-    min-h-full
-    lg:h-full
-    flex flex-col
-    items-center
-    xl:flex-row
-    gap-x-6
-  "
+          container mx-auto
+          min-h-full
+          lg:h-full
+          flex flex-col
+          items-center
+          xl:flex-row
+          gap-x-6
+        "
       >
         {" "}
         {/* text */}
@@ -283,7 +292,7 @@ const About = () => {
               {/* websites */}
               <div className="relative after:absolute after:right-0 after:top-0 after:h-full after:w-px after:bg-white/10">
                 <div className="mb-1 text-2xl xl:text-4xl font-extrabold text-accent">
-                  <CountUp start={0} end={15} duration={4} />+
+                  <CountUp start={0} end={84} duration={4} />+
                 </div>
 
                 <div className="text-[10px] xl:text-xs uppercase tracking-[1px] leading-[1.4] text-white/55">
