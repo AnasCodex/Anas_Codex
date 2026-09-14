@@ -46,16 +46,21 @@ const Services = () => {
       className="
         relative
         h-full
+        w-full
+        max-w-full
+
         overflow-y-auto
+        overflow-x-hidden
+
         lg:overflow-hidden
 
         bg-primary/30
 
         pt-24
-        pb-[120px]
+        pb-[125px]
 
         sm:pt-28
-        sm:pb-[130px]
+        sm:pb-[135px]
 
         lg:flex
         lg:items-center
@@ -64,14 +69,36 @@ const Services = () => {
         custom-scrollbar
       "
     >
-      {/* background decoration */}
-      <Circles />
+      {/* Background Decoration */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <Circles />
+      </div>
 
-      <div className="container relative z-20 mx-auto">
+      {/* Main Container */}
+      <div
+        className="
+          container
+          relative
+          z-20
+          mx-auto
+
+          w-full
+          max-w-full
+          min-w-0
+
+          px-4
+          sm:px-6
+          xl:px-0
+        "
+      >
         <div
           className="
             flex
+            w-full
+            max-w-full
+            min-w-0
             flex-col
+
             gap-8
 
             xl:flex-row
@@ -83,8 +110,11 @@ const Services = () => {
           <div
             className="
               mx-auto
+
               w-full
               max-w-[520px]
+              min-w-0
+
               text-center
 
               xl:mx-0
@@ -93,7 +123,7 @@ const Services = () => {
               xl:text-left
             "
           >
-            {/* label */}
+            {/* Label */}
             <motion.div
               variants={fadeIn("up", 0.1)}
               initial="hidden"
@@ -102,12 +132,17 @@ const Services = () => {
               className="
                 mb-3
                 inline-flex
+                max-w-full
                 items-center
                 gap-2
+
                 rounded-full
                 border border-white/10
                 bg-white/[0.035]
-                px-3 py-1.5
+
+                px-3
+                py-1.5
+
                 text-[10px]
                 uppercase
                 tracking-[0.18em]
@@ -118,7 +153,9 @@ const Services = () => {
             >
               <span
                 className="
-                  h-1.5 w-1.5
+                  h-1.5
+                  w-1.5
+                  shrink-0
                   rounded-full
                   bg-accent
                   shadow-[0_0_8px_currentColor]
@@ -127,7 +164,7 @@ const Services = () => {
               What I do
             </motion.div>
 
-            {/* title */}
+            {/* Title */}
             <motion.h2
               variants={fadeIn("up", 0.2)}
               initial="hidden"
@@ -135,6 +172,9 @@ const Services = () => {
               exit="hidden"
               className="
                 mb-3
+
+                break-words
+
                 text-[28px]
                 font-bold
                 leading-[1.15]
@@ -149,7 +189,7 @@ const Services = () => {
               <span className="text-accent">real businesses.</span>
             </motion.h2>
 
-            {/* description */}
+            {/* Description */}
             <motion.p
               variants={fadeIn("up", 0.3)}
               initial="hidden"
@@ -158,6 +198,7 @@ const Services = () => {
               className="
                 mx-auto
                 max-w-[430px]
+
                 text-[13px]
                 leading-6
                 text-white/55
@@ -172,7 +213,7 @@ const Services = () => {
               focused on performance, usability, and business goals.
             </motion.p>
 
-            {/* skills line */}
+            {/* Main Technologies */}
             <motion.div
               variants={fadeIn("up", 0.4)}
               initial="hidden"
@@ -180,10 +221,15 @@ const Services = () => {
               exit="hidden"
               className="
                 mt-5
+
                 flex
+                max-w-full
                 flex-wrap
                 justify-center
-                gap-x-2 gap-y-1
+
+                gap-x-2
+                gap-y-1
+
                 text-[9px]
                 font-medium
                 uppercase
@@ -217,6 +263,8 @@ const Services = () => {
             exit="hidden"
             className="
               w-full
+              max-w-full
+              min-w-0
 
               xl:w-[70%]
             "
@@ -224,6 +272,10 @@ const Services = () => {
             <div
               className="
                 grid
+                w-full
+                max-w-full
+                min-w-0
+
                 grid-cols-1
                 gap-3
 
@@ -246,6 +298,11 @@ const Services = () => {
                     className="
                       group
                       relative
+
+                      w-full
+                      max-w-full
+                      min-w-0
+
                       overflow-hidden
 
                       rounded-2xl
@@ -264,11 +321,12 @@ const Services = () => {
                       sm:p-6
                     "
                   >
-                    {/* glow */}
+                    {/* Glow */}
                     <div
                       className="
                         pointer-events-none
                         absolute
+
                         -right-12
                         -top-12
 
@@ -286,22 +344,25 @@ const Services = () => {
                       "
                     />
 
-                    {/* top */}
+                    {/* Header */}
                     <div
                       className="
                         relative
                         mb-5
+
                         flex
                         items-start
                         justify-between
                       "
                     >
-                      {/* icon */}
+                      {/* Icon */}
                       <div
                         className="
                           flex
                           h-11
                           w-11
+                          shrink-0
+
                           items-center
                           justify-center
 
@@ -326,9 +387,10 @@ const Services = () => {
                         <Icon />
                       </div>
 
-                      {/* number */}
+                      {/* Number */}
                       <span
                         className="
+                          shrink-0
                           text-[10px]
                           font-medium
                           tracking-[0.15em]
@@ -339,11 +401,13 @@ const Services = () => {
                       </span>
                     </div>
 
-                    {/* service title */}
+                    {/* Service Title */}
                     <h3
                       className="
                         relative
                         mb-2
+
+                        break-words
 
                         text-[15px]
                         font-semibold
@@ -355,11 +419,13 @@ const Services = () => {
                       {service.title}
                     </h3>
 
-                    {/* description */}
+                    {/* Description */}
                     <p
                       className="
                         relative
                         mb-5
+
+                        break-words
 
                         text-[12px]
                         leading-[1.7]
@@ -371,12 +437,15 @@ const Services = () => {
                       {service.description}
                     </p>
 
-                    {/* tags */}
+                    {/* Technologies */}
                     <div
                       className="
                         relative
+
                         flex
+                        max-w-full
                         flex-wrap
+
                         gap-1.5
                       "
                     >
@@ -384,6 +453,8 @@ const Services = () => {
                         <span
                           key={technology}
                           className="
+                            max-w-full
+
                             rounded-full
                             border border-white/[0.07]
                             bg-black/10
@@ -406,7 +477,7 @@ const Services = () => {
                       ))}
                     </div>
 
-                    {/* accent line */}
+                    {/* Bottom Accent */}
                     <div
                       className="
                         absolute
@@ -432,8 +503,8 @@ const Services = () => {
         </div>
       </div>
 
-      {/* bulb desktop only */}
-      <div className="hidden xl:block">
+      {/* Bulb - Desktop Only */}
+      <div className="pointer-events-none hidden xl:block">
         <Bulb />
       </div>
     </div>
