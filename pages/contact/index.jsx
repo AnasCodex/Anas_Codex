@@ -4,6 +4,7 @@ import emailjs from "@emailjs/browser";
 
 import { fadeIn } from "../../variants";
 import { useRef, useState } from "react";
+import Socials from "../../components/Socials";
 
 const Contact = () => {
   const formRef = useRef(null);
@@ -44,11 +45,13 @@ const Contact = () => {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="h2 text-center mb-12"
+            className="h2 text-center mb-0"
           >
             Let's <span className="text-accent">connect.</span>
           </motion.h2>
-
+          <div className="flex align-center justify-center mt-4 mb-6">
+            <Socials />
+          </div>
           <motion.form
             ref={formRef}
             variants={fadeIn("up", 0.4)}
