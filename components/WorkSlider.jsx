@@ -30,7 +30,7 @@ const workSlides = {
         {
           title: "title",
           path: "/thumb4.png",
-          link: "https://neobuild.sa",
+          link: "https://kripton.sa/",
         },
       ],
     },
