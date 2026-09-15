@@ -365,7 +365,7 @@ const Contact = () => {
                       group-hover:text-white
                     "
                   >
-                    +966 57 398 4049
+                    +966 57 398 4094
                   </div>
                 </div>
               </a>
