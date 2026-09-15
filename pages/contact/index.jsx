@@ -297,7 +297,7 @@ const Contact = () => {
 
               {/* Phone */}
               <a
-                href="tel:+966573984049"
+                href="tel:+966573984094"
                 className="
                   group
 

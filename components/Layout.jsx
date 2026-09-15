@@ -110,7 +110,7 @@ const Layout = ({ children }) => {
               description:
                 "Senior Web & E-Commerce Developer based in Riyadh, Saudi Arabia, specializing in WordPress, Salla, WooCommerce, React and Next.js.",
               email: "mailto:anas.coding404@gmail.com",
-              telephone: "+966573984049",
+              telephone: "+966573984094",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Riyadh",
