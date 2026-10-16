@@ -1,0 +1,1151 @@
+[
+  {
+    "slug": "motion-lab",
+    "name": {
+      "ar": "موشن لاب",
+      "en": "Motion Lab"
+    },
+    "category": "WordPress",
+    "assets": [
+      {
+        "base": "/media/motion-lab-0",
+        "width": 1440,
+        "height": 7216
+      },
+      {
+        "base": "/media/motion-lab-1",
+        "width": 1440,
+        "height": 810
+      }
+    ],
+    "url": "https://motionlab.sa",
+    "featured": true,
+    "documented": true
+  },
+  {
+    "slug": "kripton",
+    "name": {
+      "ar": "كريبتون",
+      "en": "Kripton"
+    },
+    "category": "WordPress",
+    "assets": [
+      {
+        "base": "/media/kripton-0",
+        "width": 1440,
+        "height": 6552
+      },
+      {
+        "base": "/media/kripton-1",
+        "width": 1440,
+        "height": 810
+      }
+    ],
+    "url": "https://kripton.sa",
+    "featured": true,
+    "documented": true,
+    "videos": [
+      {
+        "src": "/videos/kripton.mp4",
+        "poster": "/videos/kripton-poster.webp",
+        "width": 1280,
+        "height": 726,
+        "duration": 36.734,
+        "previewSrc": "/videos/kripton-preview.mp4"
+      }
+    ]
+  },
+  {
+    "slug": "theqa",
+    "name": {
+      "ar": "ثقة وإعمار",
+      "en": "Theqa Technology"
+    },
+    "category": "WordPress",
+    "assets": [
+      {
+        "base": "/media/theqa-0",
+        "width": 1440,
+        "height": 11078
+      },
+      {
+        "base": "/media/theqa-1",
+        "width": 1365,
+        "height": 768
+      }
+    ],
+    "url": "https://theqa-technology.sa",
+    "featured": true,
+    "documented": true
+  },
+  {
+    "slug": "emad",
+    "name": {
+      "ar": "عماد",
+      "en": "Emad"
+    },
+    "category": "WordPress",
+    "assets": [
+      {
+        "base": "/media/emad-0",
+        "width": 1440,
+        "height": 810
+      }
+    ],
+    "url": "https://emad-app.sa",
+    "featured": true,
+    "documented": true
+  },
+  {
+    "slug": "jeetroom",
+    "name": {
+      "ar": "جيت روم",
+      "en": "Jeetroom"
+    },
+    "category": "Next.js",
+    "assets": [
+      {
+        "base": "/media/jeetroom-0",
+        "width": 1440,
+        "height": 5693
+      },
+      {
+        "base": "/media/jeetroom-1",
+        "width": 1440,
+        "height": 1023
+      }
+    ],
+    "url": "",
+    "featured": true,
+    "documented": true
+  },
+  {
+    "slug": "golden-afaq",
+    "name": {
+      "ar": "جولدن آفاق",
+      "en": "Golden Afaq"
+    },
+    "category": "WordPress",
+    "assets": [
+      {
+        "base": "/media/golden-afaq-0",
+        "width": 1440,
+        "height": 8312
+      },
+      {
+        "base": "/media/golden-afaq-1",
+        "width": 1440,
+        "height": 1985
+      },
+      {
+        "base": "/media/golden-afaq-2",
+        "width": 1440,
+        "height": 8742
+      },
+      {
+        "base": "/media/golden-afaq-3",
+        "width": 1440,
+        "height": 1992
+      },
+      {
+        "base": "/media/golden-afaq-4",
+        "width": 1440,
+        "height": 5251
+      },
+      {
+        "base": "/media/golden-afaq-5",
+        "width": 1440,
+        "height": 2884
+      },
+      {
+        "base": "/media/golden-afaq-6",
+        "width": 1440,
+        "height": 3107
+      }
+    ],
+    "url": "https://golden-afaq.com",
+    "featured": true,
+    "documented": false
+  },
+  {
+    "slug": "alansga",
+    "name": {
+      "ar": "أنسجة",
+      "en": "Alansga"
+    },
+    "category": "Salla",
+    "assets": [
+      {
+        "base": "/media/alansga-0",
+        "width": 1440,
+        "height": 5024
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "luxury-care",
+    "name": {
+      "ar": "العناية الفاخرة",
+      "en": "Luxury Care"
+    },
+    "category": "Salla",
+    "assets": [
+      {
+        "base": "/media/luxury-care-0",
+        "width": 1440,
+        "height": 13575
+      }
+    ],
+    "url": "https://aleanayih-alfakhira.com/ar/",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "eliana",
+    "name": {
+      "ar": "إليانا",
+      "en": "Eliana"
+    },
+    "category": "Salla",
+    "assets": [
+      {
+        "base": "/media/eliana-0",
+        "width": 1440,
+        "height": 2798
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "hanai-boutique",
+    "name": {
+      "ar": "هناي بوتيك",
+      "en": "Hanai Boutique"
+    },
+    "category": "Salla",
+    "assets": [
+      {
+        "base": "/media/hanai-boutique-0",
+        "width": 1440,
+        "height": 12141
+      },
+      {
+        "base": "/media/hanai-boutique-1",
+        "width": 1440,
+        "height": 2772
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "otor200",
+    "name": {
+      "ar": "عطور ٢٠٠",
+      "en": "Otor 200"
+    },
+    "category": "Salla",
+    "assets": [
+      {
+        "base": "/media/otor200-0",
+        "width": 1440,
+        "height": 9436
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "okk",
+    "name": {
+      "ar": "OKK",
+      "en": "OKK"
+    },
+    "category": "Salla",
+    "assets": [
+      {
+        "base": "/media/okk-0",
+        "width": 1440,
+        "height": 6527
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "digital-vip",
+    "name": {
+      "ar": "ديجيتال VIP",
+      "en": "Digital VIP"
+    },
+    "category": "WordPress",
+    "assets": [
+      {
+        "base": "/media/digital-vip-0",
+        "width": 1440,
+        "height": 7202
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "frame-x",
+    "name": {
+      "ar": "فريم إكس",
+      "en": "Frame X"
+    },
+    "category": "WordPress",
+    "assets": [
+      {
+        "base": "/media/frame-x-0",
+        "width": 1440,
+        "height": 6575
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "jawaher",
+    "name": {
+      "ar": "جواهر المعرفة",
+      "en": "Jawaher Education"
+    },
+    "category": "WordPress",
+    "assets": [
+      {
+        "base": "/media/jawaher-0",
+        "width": 1440,
+        "height": 9347
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "naseil",
+    "name": {
+      "ar": "نسيل",
+      "en": "Naseil"
+    },
+    "category": "WordPress",
+    "assets": [
+      {
+        "base": "/media/naseil-0",
+        "width": 1440,
+        "height": 5615
+      }
+    ],
+    "url": "https://naseil.com",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "san-motors",
+    "name": {
+      "ar": "سان موتورز",
+      "en": "San Motors"
+    },
+    "category": "WordPress",
+    "assets": [
+      {
+        "base": "/media/san-motors-0",
+        "width": 1440,
+        "height": 5681
+      }
+    ],
+    "url": "https://sanmotorss.com",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "sheba-trade",
+    "name": {
+      "ar": "سبأ تريد",
+      "en": "Sheba Trade"
+    },
+    "category": "WordPress",
+    "assets": [
+      {
+        "base": "/media/sheba-trade-0",
+        "width": 1440,
+        "height": 6185
+      }
+    ],
+    "url": "https://shebatrade.com",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "smat",
+    "name": {
+      "ar": "سمات",
+      "en": "Smat"
+    },
+    "category": "WordPress",
+    "assets": [
+      {
+        "base": "/media/smat-0",
+        "width": 1440,
+        "height": 5436
+      },
+      {
+        "base": "/media/smat-1",
+        "width": 1440,
+        "height": 6590
+      },
+      {
+        "base": "/media/smat-2",
+        "width": 1440,
+        "height": 6650
+      }
+    ],
+    "url": "https://smat.sa",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "virals",
+    "name": {
+      "ar": "فيرالز للتسويق",
+      "en": "Virals Marketing"
+    },
+    "category": "WordPress",
+    "assets": [
+      {
+        "base": "/media/virals-0",
+        "width": 1440,
+        "height": 6852
+      },
+      {
+        "base": "/media/virals-1",
+        "width": 1440,
+        "height": 3223
+      }
+    ],
+    "url": "https://viralsmkt.com",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "china-source",
+    "name": {
+      "ar": "مصدر الصين",
+      "en": "China Source"
+    },
+    "category": "WordPress",
+    "assets": [
+      {
+        "base": "/media/china-source-0",
+        "width": 1440,
+        "height": 6636
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "dalil",
+    "name": {
+      "ar": "دليل الصين",
+      "en": "Dalil"
+    },
+    "category": "WordPress",
+    "assets": [
+      {
+        "base": "/media/dalil-0",
+        "width": 1440,
+        "height": 1815
+      }
+    ],
+    "url": "https://dalil.cn",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "editorial-blog",
+    "name": {
+      "ar": "مدونة أنس كودكس",
+      "en": "Editorial Blog"
+    },
+    "category": "WordPress",
+    "assets": [
+      {
+        "base": "/media/editorial-blog-0",
+        "width": 1440,
+        "height": 5983
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "real-estate",
+    "name": {
+      "ar": "موقع عقاري",
+      "en": "Real Estate Website"
+    },
+    "category": "WordPress",
+    "assets": [
+      {
+        "base": "/media/real-estate-0",
+        "width": 1440,
+        "height": 5281
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "okstc-next",
+    "name": {
+      "ar": "OKSTC / Next.js",
+      "en": "OKSTC / Next.js"
+    },
+    "category": "Next.js",
+    "assets": [
+      {
+        "base": "/media/okstc-next-0",
+        "width": 1440,
+        "height": 7710
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "portfolio-next",
+    "name": {
+      "ar": "أنس كودكس / Next.js",
+      "en": "Anas Codex / Next.js"
+    },
+    "category": "Next.js",
+    "assets": [
+      {
+        "base": "/media/portfolio-next-0",
+        "width": 1440,
+        "height": 768
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "ymall",
+    "name": {
+      "ar": "واي مول",
+      "en": "YMall"
+    },
+    "category": "React",
+    "assets": [
+      {
+        "base": "/media/ymall-0",
+        "width": 1366,
+        "height": 3361
+      },
+      {
+        "base": "/media/ymall-1",
+        "width": 1440,
+        "height": 3193
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "react-commerce",
+    "name": {
+      "ar": "ستورين",
+      "en": "Storein"
+    },
+    "category": "React",
+    "assets": [
+      {
+        "base": "/media/react-commerce-0",
+        "width": 1366,
+        "height": 3058
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "analytics-blue",
+    "name": {
+      "ar": "واجهة تحليلات",
+      "en": "Analytics Interface"
+    },
+    "category": "React",
+    "assets": [
+      {
+        "base": "/media/analytics-blue-0",
+        "width": 1440,
+        "height": 1654
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "sales-dashboard",
+    "name": {
+      "ar": "لوحة المبيعات",
+      "en": "Sales Dashboard"
+    },
+    "category": "React",
+    "assets": [
+      {
+        "base": "/media/sales-dashboard-0",
+        "width": 1440,
+        "height": 1179
+      },
+      {
+        "base": "/media/sales-dashboard-1",
+        "width": 1440,
+        "height": 2223
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "seller-dashboard",
+    "name": {
+      "ar": "لوحة البائع",
+      "en": "Seller Dashboard"
+    },
+    "category": "React",
+    "assets": [
+      {
+        "base": "/media/seller-dashboard-0",
+        "width": 1366,
+        "height": 930
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "profile-dashboard",
+    "name": {
+      "ar": "لوحة الملف الشخصي",
+      "en": "Profile Dashboard"
+    },
+    "category": "React",
+    "assets": [
+      {
+        "base": "/media/profile-dashboard-0",
+        "width": 1366,
+        "height": 1548
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "portfolio-react",
+    "name": {
+      "ar": "أنس / بورتفوليو تفاعلي",
+      "en": "Anas / Interactive Portfolio"
+    },
+    "category": "React",
+    "assets": [
+      {
+        "base": "/media/portfolio-react-0",
+        "width": 1440,
+        "height": 6662
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false,
+    "videos": [
+      {
+        "src": "/videos/portfolio-react.mp4",
+        "poster": "/videos/portfolio-react-poster.webp",
+        "width": 1280,
+        "height": 686,
+        "duration": 30.067
+      }
+    ]
+  },
+  {
+    "slug": "portfolio-2022",
+    "name": {
+      "ar": "أنس / بورتفوليو المطور",
+      "en": "Anas / Developer Portfolio"
+    },
+    "category": "React",
+    "assets": [
+      {
+        "base": "/media/portfolio-2022-0",
+        "width": 1366,
+        "height": 3505
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "education-react",
+    "name": {
+      "ar": "موقع تعليمي",
+      "en": "Education Website"
+    },
+    "category": "React",
+    "assets": [
+      {
+        "base": "/media/education-react-0",
+        "width": 1366,
+        "height": 5177
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "okstc-react",
+    "name": {
+      "ar": "OKSTC / React",
+      "en": "OKSTC / React"
+    },
+    "category": "React",
+    "assets": [
+      {
+        "base": "/media/okstc-react-0",
+        "width": 1440,
+        "height": 7606
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "beroo",
+    "name": {
+      "ar": "بيرو للمجوهرات",
+      "en": "Beroo Jewels"
+    },
+    "category": "Other",
+    "assets": [
+      {
+        "base": "/media/beroo-0",
+        "width": 1366,
+        "height": 4976
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "studio-portfolio",
+    "name": {
+      "ar": "بورتفوليو استوديو",
+      "en": "Studio Portfolio"
+    },
+    "category": "Other",
+    "assets": [
+      {
+        "base": "/media/studio-portfolio-0",
+        "width": 1366,
+        "height": 3775
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "business-dashboard",
+    "name": {
+      "ar": "لوحة الأعمال",
+      "en": "Business Dashboard"
+    },
+    "category": "Other",
+    "assets": [
+      {
+        "base": "/media/business-dashboard-0",
+        "width": 1366,
+        "height": 1210
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "industrial-web",
+    "name": {
+      "ar": "موقع صناعي",
+      "en": "Industrial Website"
+    },
+    "category": "Other",
+    "assets": [
+      {
+        "base": "/media/industrial-web-0",
+        "width": 1440,
+        "height": 6664
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "launch-interface",
+    "name": {
+      "ar": "واجهة إطلاق",
+      "en": "Launch Interface"
+    },
+    "category": "Other",
+    "assets": [
+      {
+        "base": "/media/launch-interface-0",
+        "width": 1440,
+        "height": 781
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "marketing-interface",
+    "name": {
+      "ar": "واجهة تسويقية",
+      "en": "Marketing Interface"
+    },
+    "category": "Other",
+    "assets": [
+      {
+        "base": "/media/marketing-interface-0",
+        "width": 1440,
+        "height": 715
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "brand-awards",
+    "name": {
+      "ar": "روح / تجربة الدروع والجوائز",
+      "en": "Rooh / Awards Experience"
+    },
+    "category": "Three.js",
+    "assets": [
+      {
+        "base": "/media/brand-awards-0",
+        "width": 1440,
+        "height": 4992
+      }
+    ],
+    "url": "https://rooh-sa-ten.vercel.app",
+    "featured": false,
+    "documented": false,
+    "videos": [
+      {
+        "src": "/videos/brand-awards.mp4",
+        "poster": "/videos/brand-awards-poster.webp",
+        "width": 1280,
+        "height": 686,
+        "duration": 35.534
+      }
+    ]
+  },
+  {
+    "slug": "mahmd-portfolio",
+    "name": {
+      "ar": "محمود / بورتفوليو ثلاثي الأبعاد",
+      "en": "Mahmd / 3D Portfolio"
+    },
+    "category": "Three.js",
+    "assets": [
+      {
+        "base": "/media/mahmd-portfolio-0",
+        "width": 1440,
+        "height": 4394
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "red-crescent",
+    "name": {
+      "ar": "موقع الهلال الأحمر",
+      "en": "Red Crescent Website"
+    },
+    "category": "HTML",
+    "assets": [
+      {
+        "base": "/media/red-crescent-0",
+        "width": 1366,
+        "height": 4300
+      },
+      {
+        "base": "/media/red-crescent-1",
+        "width": 1366,
+        "height": 3213
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "united-digital",
+    "name": {
+      "ar": "يونايتد ديجيتال",
+      "en": "United Digital"
+    },
+    "category": "HTML",
+    "assets": [
+      {
+        "base": "/media/united-digital-0",
+        "width": 1440,
+        "height": 4648
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "early-portfolio",
+    "name": {
+      "ar": "أنس / بورتفوليو البدايات",
+      "en": "Anas / Early Portfolio"
+    },
+    "category": "HTML",
+    "assets": [
+      {
+        "base": "/media/early-portfolio-0",
+        "width": 1366,
+        "height": 5373
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "go-adds",
+    "name": {
+      "ar": "جو آدز",
+      "en": "Go Adds"
+    },
+    "category": "HTML",
+    "assets": [
+      {
+        "base": "/media/go-adds-0",
+        "width": 1366,
+        "height": 3453
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "nerdo",
+    "name": {
+      "ar": "نيردو",
+      "en": "Nerdo"
+    },
+    "category": "HTML",
+    "assets": [
+      {
+        "base": "/media/nerdo-0",
+        "width": 1366,
+        "height": 3588
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "kazooz",
+    "name": {
+      "ar": "كزوز",
+      "en": "Kazooz"
+    },
+    "category": "HTML",
+    "assets": [
+      {
+        "base": "/media/kazooz-0",
+        "width": 1366,
+        "height": 2644
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "care-landing",
+    "name": {
+      "ar": "العناية الفاخرة / صفحة تعريفية",
+      "en": "Luxury Care / Landing"
+    },
+    "category": "HTML",
+    "assets": [
+      {
+        "base": "/media/care-landing-0",
+        "width": 455,
+        "height": 1705
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "portal-ramadan",
+    "name": {
+      "ar": "بوابة رمضان",
+      "en": "Ramadan Portal"
+    },
+    "category": "Other",
+    "assets": [
+      {
+        "base": "/media/portal-ramadan-0",
+        "width": 1440,
+        "height": 887
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "portal-dark",
+    "name": {
+      "ar": "بوابة الدخول",
+      "en": "Access Portal"
+    },
+    "category": "Other",
+    "assets": [
+      {
+        "base": "/media/portal-dark-0",
+        "width": 1440,
+        "height": 880
+      }
+    ],
+    "url": "",
+    "featured": false,
+    "documented": false
+  },
+  {
+    "slug": "gaming-experience",
+    "name": {
+      "ar": "تجربة ألعاب تفاعلية",
+      "en": "Gaming Experience"
+    },
+    "category": "React",
+    "assets": [
+      {
+        "base": "/media/gaming-experience-0",
+        "width": 1440,
+        "height": 806
+      }
+    ],
+    "url": "https://an-awwwards-winning-website.vercel.app",
+    "featured": false,
+    "documented": false,
+    "videos": [
+      {
+        "src": "/videos/gaming-experience.mp4",
+        "poster": "/videos/gaming-experience-poster.webp",
+        "width": 1280,
+        "height": 726,
+        "duration": 28.7
+      }
+    ]
+  },
+  {
+    "slug": "island-portfolio",
+    "name": {
+      "ar": "الجزيرة / بورتفوليو ثلاثي الأبعاد",
+      "en": "Island / 3D Portfolio"
+    },
+    "category": "Three.js",
+    "assets": [
+      {
+        "base": "/media/island-portfolio-0",
+        "width": 1440,
+        "height": 806
+      }
+    ],
+    "url": "https://portofolio-with-react-js-and-three-js-one.vercel.app",
+    "featured": false,
+    "documented": false,
+    "videos": [
+      {
+        "src": "/videos/island-portfolio.mp4",
+        "poster": "/videos/island-portfolio-poster.webp",
+        "width": 1280,
+        "height": 686,
+        "duration": 41.1
+      }
+    ]
+  },
+  {
+    "slug": "bawsala",
+    "name": {
+      "ar": "بوصلة",
+      "en": "Bawsala"
+    },
+    "category": "HTML",
+    "assets": [
+      {
+        "base": "/media/bawsala-0",
+        "width": 1440,
+        "height": 806
+      }
+    ],
+    "url": "https://anascodex.github.io/Bawsala/",
+    "featured": false,
+    "documented": false,
+    "repository": "https://github.com/AnasCodex/Bawsala",
+    "videos": [
+      {
+        "src": "/videos/bawsala.mp4",
+        "poster": "/videos/bawsala-poster.webp",
+        "width": 1280,
+        "height": 686,
+        "duration": 20.334
+      }
+    ]
+  }
+]

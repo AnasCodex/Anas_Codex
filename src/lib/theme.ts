@@ -1,0 +1,2 @@
+// Runs in <head> before the page paints. Dark is the deliberate first-visit default.
+export const themeScript = `(function(){var t='dark';try{if(localStorage.getItem('anas-theme')==='light')t='light'}catch(e){}document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t;var m=document.getElementById('anas-theme-color');if(!m){m=document.createElement('meta');m.name='theme-color';m.id='anas-theme-color';document.head.appendChild(m)}m.content=t==='dark'?'#101219':'#f0efe9'})()`;

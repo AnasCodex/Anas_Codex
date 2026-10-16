@@ -1,0 +1,11 @@
+input/
+.audit/
+qa/
+release/
+.git/
+.next/
+out/
+node_modules/
+*.tsbuildinfo
+.env*
+!.env.example
