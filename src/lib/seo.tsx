@@ -36,6 +36,8 @@ export function metadata(l: Locale, name: string, path = "", description?: strin
       "Anas Naser — Senior Web & E-Commerce Developer in Riyadh. Explore real projects in Next.js, React, WordPress, and Salla.",
     );
   const url = siteUrl + href(l, path);
+  // Use a new URL when replacing artwork so preview caches can fetch the new image.
+  const shareImage = `/og-${l}-20261103.png`;
   return {
     title: `${name} | Anas Codex`,
     description: desc,
@@ -64,9 +66,10 @@ export function metadata(l: Locale, name: string, path = "", description?: strin
       siteName: "Anas Codex",
       images: [
         {
-          url: `/og-${l}.png`,
-          width: 1200,
-          height: 630,
+          url: shareImage,
+          width: 1731,
+          height: 909,
+          type: "image/png",
           alt: text(
             l,
             "ANAS CODEX · أنس ناصر، مطوّر مواقع ومتاجر إلكترونية",
@@ -79,7 +82,7 @@ export function metadata(l: Locale, name: string, path = "", description?: strin
       card: "summary_large_image",
       title: `${name} | Anas Codex`,
       description: desc,
-      images: [`/og-${l}.png`],
+      images: [shareImage],
     },
     robots: { index: true, follow: true },
   };

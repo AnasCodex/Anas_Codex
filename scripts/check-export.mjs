@@ -1,6 +1,7 @@
 import { readFile, stat, mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { createHash } from "node:crypto";
+import sharp from "sharp";
 const projects = JSON.parse(await readFile("src/data/projects.json", "utf8"));
 const paths = [
   "",
@@ -39,6 +40,34 @@ for (const l of ["ar", "en"])
       if (!html.includes(`hrefLang="${alt}"`)) issues.push("Missing hreflang " + alt + ": " + url);
     if (!/<meta name="description" content="[^\"]+"/.test(html))
       issues.push("Missing description: " + url);
+    const getMeta = (name) =>
+      html.match(new RegExp(`<meta (?:property|name)="${name}" content="([^\"]+)"`))?.[1];
+    const ogImage = getMeta("og:image");
+    const twitterImage = getMeta("twitter:image");
+    if (!ogImage || !twitterImage || ogImage !== twitterImage) {
+      issues.push("Missing or inconsistent share images: " + url);
+    } else {
+      try {
+        const imageUrl = new URL(ogImage);
+        const expectedPath = `/og-${l}-20261103.png`;
+        if (imageUrl.pathname !== expectedPath) issues.push("Unexpected share image: " + url);
+        const imageFile = path.join(root, expectedPath);
+        if (!(await exists(imageFile))) {
+          issues.push("Missing share image: " + url);
+        } else {
+          const image = await sharp(imageFile).metadata();
+          if (image.format !== "png" || getMeta("og:image:type") !== "image/png")
+            issues.push("Share image format mismatch: " + url);
+          if (
+            Number(getMeta("og:image:width")) !== image.width ||
+            Number(getMeta("og:image:height")) !== image.height
+          )
+            issues.push("Share image dimensions mismatch: " + url);
+        }
+      } catch {
+        issues.push("Invalid share image: " + url);
+      }
+    }
     for (const match of html.matchAll(/<(?:a|link|img|script)\b[^>]*?\b(?:href|src)="([^\"]+)"/g)) {
       const raw = match[1].replaceAll("&amp;", "&");
       if (!raw.startsWith("/") || raw.startsWith("//")) continue;
@@ -75,7 +104,13 @@ for (const l of ["AR", "EN"]) {
       issues.push("CV differs from original " + l);
   }
 }
-for (const f of ["sitemap.xml", "robots.txt", "404.html", "og-ar.png", "og-en.png"])
+for (const f of [
+  "sitemap.xml",
+  "robots.txt",
+  "404.html",
+  "og-ar-20261103.png",
+  "og-en-20261103.png",
+])
   if (!(await exists(path.join(root, f)))) issues.push("Missing " + f);
 const xml = await readFile(path.join(root, "sitemap.xml"), "utf8");
 if ((xml.match(/<loc>/g) || []).length !== paths.length * 2)
