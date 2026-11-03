@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "audit:export": "node scripts/check-export.mjs",
+    "test:career": "node scripts/career-qa.mjs",
     "test:browser": "node scripts/radical-qa.mjs",
     "project:add": "node scripts/add-project.mjs",
     "test:redesign": "node scripts/radical-qa.mjs",

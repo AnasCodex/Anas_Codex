@@ -3,6 +3,7 @@ import path from "node:path";
 import { createHash } from "node:crypto";
 import sharp from "sharp";
 const projects = JSON.parse(await readFile("src/data/projects.json", "utf8"));
+const resumes = JSON.parse(await readFile("src/data/resume-assets.json", "utf8"));
 const paths = [
   "",
   "projects",
@@ -99,10 +100,8 @@ for (const l of ["AR", "EN"]) {
   }
   if ((await hash("public/resume/" + name)) !== (await hash("out/resume/" + name)))
     issues.push("Exported CV differs from public asset " + l);
-  if (await exists("input/cv/" + name)) {
-    if ((await hash("input/cv/" + name)) !== (await hash("out/resume/" + name)))
-      issues.push("CV differs from original " + l);
-  }
+  if ((await hash("out/resume/" + name)) !== resumes[l].sha256)
+    issues.push("CV differs from approved final career package: " + resumes[l].source);
 }
 for (const f of [
   "sitemap.xml",

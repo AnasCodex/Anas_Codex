@@ -74,7 +74,7 @@ export function Navigation({ locale: l }: { locale: Locale }) {
         </Link>
         <span className="header-status">
           <span className="status-dot" />
-          {text(l, "متاح لفرص العمل والتعاون", "OPEN TO OPPORTUNITIES")}
+          {text(l, "متاح للعمل فورًا", "AVAILABLE IMMEDIATELY")}
         </span>
         <div className="header-actions">
           <ThemeToggle locale={l} />

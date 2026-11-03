@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { href, profile, text, type Locale } from "./content";
+import { availability, bio, href, profile, text, type Locale } from "./content";
 
 export const siteUrl = (
   process.env.NEXT_PUBLIC_SITE_URL || "https://anas-codex.vercel.app"
@@ -7,20 +7,20 @@ export const siteUrl = (
 export function metadata(l: Locale, name: string, path = "", description?: string): Metadata {
   const descriptions: Record<string, [string, string]> = {
     about: [
-      "تعرّف على أنس ناصر، مطوّر مواقع ومتاجر إلكترونية في الرياض، وخبرته وأسلوبه في تحويل احتياجات الأعمال إلى تجارب ويب متقنة.",
-      "Meet Anas Naser, a web and e-commerce developer in Riyadh. Explore his experience and approach to turning business needs into thoughtful web experiences.",
+      "أنس ناصر، مطوّر أول للمواقع والمتاجر الإلكترونية في الرياض، بخبرة تزيد على ٥ سنوات تشمل العمل المستقل والوظائف. متاح للعمل فورًا.",
+      "Anas Naser, Senior Web & E-Commerce Developer in Riyadh, with 5+ years across freelance and company roles. Available immediately.",
     ],
     projects: [
       "استكشف أعمال أنس ناصر في تطوير المواقع والمتاجر والتجارب التفاعلية، مع صور وتسجيلات حقيقية وفلاتر حسب التقنية.",
       "Explore Anas Naser's websites, stores, and interactive projects through original screenshots, video walkthroughs, and technology filters.",
     ],
     expertise: [
-      "تخصصات أنس ناصر: تطوير الواجهات والمواقع والمتاجر، وتخصيص WordPress، وتحسين الأداء والتهيئة التقنية لمحركات البحث وربط الخدمات.",
-      "Explore Anas Naser's expertise in front-end development, WordPress, e-commerce, performance, technical SEO, and API integrations.",
+      "تخصصات أنس ناصر: تطوير الواجهات والمتاجر وWordPress، والتطوير بمساعدة Claude وChatGPT وVibe Coding، والتصميم باستخدام Canva وAdobe Photoshop.",
+      "Anas Naser's expertise: front-end development, WordPress, e-commerce, AI-Assisted Development with Claude and ChatGPT, Vibe Coding, Canva, and Adobe Photoshop.",
     ],
     resume: [
-      "السيرة الذاتية لأنس ناصر: الخبرات المهنية والمهارات التقنية والتعليم، مع نسختين للتحميل بالعربية والإنجليزية.",
-      "Anas Naser's professional experience, technical skills, and education. Download his resume in Arabic or English.",
+      "السيرة الذاتية لأنس ناصر: خبرة تزيد على ٥ سنوات تشمل العمل المستقل والوظائف. غير مرتبط بأي جهة حاليًا ومتاح للعمل فورًا. تحميل PDF بالعربية والإنجليزية.",
+      "Anas Naser's resume: 5+ years across freelance and company roles. Not currently employed or engaged with any organization; available immediately. Arabic and English PDFs.",
     ],
     contact: [
       "تواصل مع أنس ناصر لفرصة عمل أو مشروع جديد. تجد هنا البريد الإلكتروني وروابط التواصل والسيرة الذاتية.",
@@ -32,8 +32,8 @@ export function metadata(l: Locale, name: string, path = "", description?: strin
     descriptions[path]?.[l === "ar" ? 0 : 1] ||
     text(
       l,
-      "أنس ناصر — مطوّر أول للمواقع والمتاجر الإلكترونية في الرياض. أعمال حقيقية وخبرة في Next.js وReact وWordPress وسلة.",
-      "Anas Naser — Senior Web & E-Commerce Developer in Riyadh. Explore real projects in Next.js, React, WordPress, and Salla.",
+      "أنس ناصر — مطوّر أول للمواقع والمتاجر الإلكترونية في الرياض بخبرة تزيد على ٥ سنوات تشمل العمل المستقل والوظائف. متاح للعمل فورًا.",
+      "Anas Naser — Senior Web & E-Commerce Developer in Riyadh. 5+ years across freelance and company roles. Available immediately.",
     );
   const url = siteUrl + href(l, path);
   // Use a new URL when replacing artwork so preview caches can fetch the new image.
@@ -105,6 +105,20 @@ export function PersonSchema() {
         name: "Anas Naser",
         alternateName: "Anas Codex",
         jobTitle: "Senior Web & E-Commerce Developer",
+        description: `${bio("en")} ${availability("en")}`,
+        knowsAbout: [
+          "React",
+          "Next.js",
+          "WordPress",
+          "Salla",
+          "AI-Assisted Development",
+          "Vibe Coding",
+          "Claude",
+          "ChatGPT",
+          "Canva",
+          "Adobe Photoshop",
+          "Technical team coordination",
+        ],
         url: siteUrl,
         email: profile.email,
         telephone: profile.phone,

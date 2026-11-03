@@ -9,6 +9,6 @@ export const profile = {
   phone: "+966573984094",
   linkedin: "https://www.linkedin.com/in/anascodex",
   github: "https://github.com/AnasCodex",
-  whatsapp: "https://wa.me/967730110440",
+  whatsapp: "https://wa.me/966573984094",
   youtube: "https://www.youtube.com/@AnasCodex",
 };

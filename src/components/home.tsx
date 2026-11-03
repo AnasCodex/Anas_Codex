@@ -7,7 +7,7 @@ import { Journey } from "./sections";
 import { WorkReel } from "./work-reel";
 import { Capabilities } from "./capabilities";
 import { ProjectVideo } from "./project-video";
-import { bio, href, profile, projects, text, type Locale } from "@/lib/content";
+import { availability, bio, href, profile, projects, text, type Locale } from "@/lib/content";
 import { JsonLd, siteUrl } from "@/lib/seo";
 
 export function Home({ locale: l }: { locale: Locale }) {
@@ -106,7 +106,7 @@ export function Home({ locale: l }: { locale: Locale }) {
             )}
           </p>
           <span>
-            <b dir="ltr">07+</b> {text(l, "سنوات من البناء", "YEARS OF BUILDING")}
+            <b dir="ltr">5+</b> {text(l, "سنوات من الخبرة", "YEARS OF EXPERIENCE")}
           </span>
           <a href={`/resume/Anas_Naser_CV_${l.toUpperCase()}.pdf`} download className="text-link">
             {text(l, "السيرة الذاتية", "RESUME")} <Arrow down />
@@ -276,8 +276,8 @@ export function Home({ locale: l }: { locale: Locale }) {
                 text(l, "واجهات تتصل بما وراءها", "Interfaces that connect"),
                 text(
                   l,
-                  "تطوير بـNext.js وربط واجهات API والخدمات الخارجية ضمن تعاقد جيت روم.",
-                  "Next.js, APIs, and third-party integrations in the Jeetroom contract.",
+                  "طوّرت واجهات بـNext.js وربطت واجهات API والخدمات الخارجية خلال عملي السابق بدوام جزئي عن بُعد لدى جيت روم.",
+                  "Developed Next.js interfaces, APIs, and third-party integrations in my previous part-time remote role at Jeetroom.",
                 ),
                 text(l, "Next.js / تكامل الخدمات", "NEXT.JS / API INTEGRATION"),
               ],
@@ -287,8 +287,8 @@ export function Home({ locale: l }: { locale: Locale }) {
                 text(l, "تجربة تتحدث لغتك", "An experience in your language"),
                 text(
                   l,
-                  "واجهات عربية وإنجليزية وتخصيص WordPress وElementor ضمن عملي مع ثقة وإعمار.",
-                  "Arabic and English interfaces, WordPress and Elementor customization at Trust & Build.",
+                  "طوّرت واجهات عربية وإنجليزية وخصّصت WordPress وElementor خلال عملي المستقل السابق مع ثقة وإعمار.",
+                  "Developed Arabic and English interfaces and customized WordPress and Elementor during my previous freelance engagement with Trust & Build.",
                 ),
                 "WordPress / RTL + LTR",
               ],
@@ -396,7 +396,7 @@ export function Home({ locale: l }: { locale: Locale }) {
           <div className="contact-invitation">
             <span className="status-line">
               <span className="status-dot" />
-              {text(l, "متاح لفرص العمل والتعاون", "OPEN TO OPPORTUNITIES")}
+              {availability(l)}
             </span>
             <p>
               {text(

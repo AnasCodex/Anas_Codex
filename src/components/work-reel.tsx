@@ -5,9 +5,10 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Arrow } from "./icons";
 import { ProjectPicture } from "./shared";
+import { ProjectVideo } from "./project-video";
 import { href, projects, projectSummary, text, type Locale } from "@/lib/content";
 gsap.registerPlugin(useGSAP);
-const collection = ["theqa", "emad", "jeetroom", "golden-afaq"].map((slug) =>
+const collection = ["theqa", "emad", "bawsala", "gaming-experience"].map((slug) =>
   projects.find((p) => p.slug === slug)!,
 );
 
@@ -65,20 +66,33 @@ export function WorkReel({ locale: l }: { locale: Locale }) {
           ))}
         </div>
         <div id="reel-preview" className="reel-preview" aria-live="polite" aria-atomic="true">
-          <Link className="reel-active-image" href={href(l, `projects/${p.slug}`)}>
-            <ProjectPicture
-              project={p}
-              locale={l}
-              index={p.assets.length > 1 ? 1 : 0}
-              sizes="(max-width: 767px) 90vw, 58vw"
-            />
-            <span className="reel-image-link">
-              <Arrow />
-              {text(l, "استكشف المشروع", "EXPLORE PROJECT")}
-            </span>
-          </Link>
+          {p.videos?.[0] ? (
+            <div className="reel-active-image reel-video" key={p.slug}>
+              <ProjectVideo video={p.videos[0]} name={p.name[l]} locale={l} />
+            </div>
+          ) : (
+            <Link className="reel-active-image" href={href(l, `projects/${p.slug}`)}>
+              <ProjectPicture
+                project={p}
+                locale={l}
+                index={p.assets.length > 1 ? 1 : 0}
+                sizes="(max-width: 767px) 90vw, 58vw"
+              />
+              <span className="reel-image-link">
+                <Arrow />
+                {text(l, "استكشف المشروع", "EXPLORE PROJECT")}
+              </span>
+            </Link>
+          )}
           <div className="reel-description">
-            <p>{projectSummary(p, l)}</p>
+            <div>
+              <p>{projectSummary(p, l)}</p>
+              {p.videos?.length ? (
+                <Link className="text-link" href={href(l, `projects/${p.slug}`)}>
+                  {text(l, "استكشف المشروع", "EXPLORE PROJECT")} <Arrow />
+                </Link>
+              ) : null}
+            </div>
             <span className="mono">0{active + 3} / 06</span>
           </div>
         </div>

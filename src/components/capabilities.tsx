@@ -16,6 +16,7 @@ import {
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { text, type Locale } from "@/lib/i18n";
+import { aiWorkflow, designWorkflow } from "@/lib/content";
 gsap.registerPlugin(useGSAP);
 const skills = [
   {
@@ -99,6 +100,18 @@ const skills = [
       "Interactive interfaces that use motion and 3D elements to support the content and user experience.",
     ],
   },
+  {
+    icon: CodeXml,
+    ar: "التطوير بمساعدة الذكاء الاصطناعي",
+    en: "AI-Assisted Development & Vibe Coding",
+    copy: [aiWorkflow("ar"), aiWorkflow("en")],
+  },
+  {
+    icon: Shapes,
+    ar: "التصميم الجرافيكي ومرئيات الويب",
+    en: "Graphic design & web visuals",
+    copy: [designWorkflow("ar"), designWorkflow("en")],
+  },
 ];
 export function Capabilities({ locale: l }: { locale: Locale }) {
   const [active, setActive] = useState(0);
@@ -129,8 +142,8 @@ export function Capabilities({ locale: l }: { locale: Locale }) {
     <div className="capabilities container" ref={root}>
       <div className="capability-art" aria-hidden="true">
         <span className="capability-count" dir="ltr">
-          {active < 0 ? "—" : `0${active + 1}`}
-          <span>/09</span>
+          {active < 0 ? "—" : String(active + 1).padStart(2, "0")}
+          <span>/{String(skills.length).padStart(2, "0")}</span>
         </span>
         <div className="capability-mark">
           {(() => {
@@ -158,7 +171,7 @@ export function Capabilities({ locale: l }: { locale: Locale }) {
                   onPointerEnter={(e) => animateIcon(e.currentTarget)}
                   onFocus={(e) => animateIcon(e.currentTarget)}
                 >
-                  <span className="mono">0{i + 1}</span>
+                  <span className="mono">{String(i + 1).padStart(2, "0")}</span>
                   <span className="capability-icon">
                     <Icon size={25} strokeWidth={1.4} />
                   </span>

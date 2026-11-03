@@ -6,7 +6,10 @@ import { ProjectExplorer } from "./project-explorer";
 import { CopyEmail } from "./interactions";
 import {
   categoryLabel,
+  availability,
+  aiWorkflow,
   bio,
+  designWorkflow,
   expertise,
   featured,
   href,
@@ -73,6 +76,7 @@ export function AboutPage({ locale: l }: { locale: Locale }) {
         <div className="about-story">
           <h2>{text(l, "أنس ناصر. وهذا عالمي.", "I'm Anas. Welcome to my corner of the web.")}</h2>
           <p className="large-copy">{bio(l)}</p>
+          <p>{availability(l)}</p>
           <p>
             {text(
               l,
@@ -87,6 +91,8 @@ export function AboutPage({ locale: l }: { locale: Locale }) {
               "My experience spans React, Next.js, WordPress customization, and e-commerce. I collaborate with designers and marketers, and focus on keeping websites useful and maintainable after launch.",
             )}
           </p>
+          <p>{aiWorkflow(l)}</p>
+          <p>{designWorkflow(l)}</p>
           <ButtonLink to={href(l, "resume")} secondary>
             {text(l, "تعرّف على خبرتي", "Explore my experience")}
           </ButtonLink>
@@ -192,10 +198,12 @@ export function ExpertisePage({ locale: l }: { locale: Locale }) {
             <p>
               {text(
                 l,
-                "Node.js وExpress وMySQL وMongoDB، مع استخدام أدوات الذكاء الاصطناعي للمساعدة في البرمجة وتصحيح الأخطاء وتسريع الإنجاز.",
-                "Node.js, Express, MySQL, and MongoDB, alongside AI-assisted coding, debugging, and delivery workflows.",
+                "Node.js وExpress وMySQL وMongoDB، إلى جانب أدوات التطوير والتصميم التالية.",
+                "Node.js, Express, MySQL, and MongoDB, alongside the following development and design tools.",
               )}
             </p>
+            <p>{aiWorkflow(l)}</p>
+            <p>{designWorkflow(l)}</p>
           </div>
         </div>
       </section>
@@ -218,6 +226,7 @@ export function ResumePage({ locale: l }: { locale: Locale }) {
           <div>
             <h2>{text(l, "أنس ناصر", "Anas Naser")}</h2>
             <p>{bio(l)}</p>
+            <p>{availability(l)}</p>
             <span>
               <Pin /> {text(l, "الرياض، المملكة العربية السعودية", "Riyadh, Saudi Arabia")}
             </span>
@@ -295,6 +304,7 @@ export function ContactPage({ locale: l }: { locale: Locale }) {
             <Arrow />
           </a>
           <CopyEmail locale={l} />
+          <p>{availability(l)}</p>
           <p>
             <Pin />
             {text(l, "مقيم في الرياض، المملكة العربية السعودية", "Based in Riyadh, Saudi Arabia")}
@@ -307,7 +317,7 @@ export function ContactPage({ locale: l }: { locale: Locale }) {
             [text(l, "استكشف الكود", "Explore the code"), "GitHub", profile.github],
             [
               text(l, "راسلني عبر واتساب", "Message on WhatsApp"),
-              "WhatsApp · +967 730 110 440",
+              "WhatsApp · +966 57 398 4094",
               profile.whatsapp,
             ],
             [text(l, "على يوتيوب", "On YouTube"), "@AnasCodex", profile.youtube],
@@ -454,8 +464,8 @@ export function ProjectDetail({ project: p, locale: l }: { project: Project; loc
               {p.slug === "jeetroom"
                 ? text(
                     l,
-                    "شمل العمل تطبيقات ويب ديناميكية، والتكامل مع واجهات API وخدمات خارجية، وتحسين أداء الواجهات والتهيئة لمحركات البحث. فترة التعاقد: أبريل إلى أكتوبر ٢٠٢٤.",
-                    "The contract covered dynamic web applications, API and third-party integrations, front-end performance, and SEO. Contract period: April to October 2024.",
+                    "شمل عملي بدوام جزئي عن بُعد تطوير تطبيقات ويب ديناميكية، والتكامل مع واجهات API وخدمات خارجية، وتحسين أداء الواجهات والتهيئة لمحركات البحث. فترة العمل: أبريل إلى أكتوبر ٢٠٢٤.",
+                    "My part-time remote role covered dynamic web applications, API and third-party integrations, front-end performance, and SEO. Employment period: April to October 2024.",
                   )
                 : documented
                   ? text(

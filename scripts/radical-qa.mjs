@@ -151,7 +151,7 @@ for (const locale of ["ar", "en"]) {
   await page.goto(url + prefix);
   await page.locator(".reel-index button").nth(2).click();
   check(
-    (await page.locator(".reel-preview a").getAttribute("href")).includes("jeetroom"),
+    (await page.locator(".reel-description a").getAttribute("href")).includes("bawsala"),
     `${locale}: reel switches project`,
   );
   await page.locator(".capability-row button").nth(7).click();
