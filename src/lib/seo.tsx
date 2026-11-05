@@ -37,7 +37,7 @@ export function metadata(l: Locale, name: string, path = "", description?: strin
     );
   const url = siteUrl + href(l, path);
   // Use a new URL when replacing artwork so preview caches can fetch the new image.
-  const shareImage = `/og-${l}-20261103.png`;
+  const shareImage = `/og-${l}-20261105.jpg`;
   return {
     title: `${name} | Anas Codex`,
     description: desc,
@@ -67,9 +67,9 @@ export function metadata(l: Locale, name: string, path = "", description?: strin
       images: [
         {
           url: shareImage,
-          width: 1731,
-          height: 909,
-          type: "image/png",
+          width: 1200,
+          height: 630,
+          type: "image/jpeg",
           alt: text(
             l,
             "ANAS CODEX · أنس ناصر، مطوّر مواقع ومتاجر إلكترونية",

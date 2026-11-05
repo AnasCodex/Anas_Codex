@@ -50,14 +50,15 @@ for (const l of ["ar", "en"])
     } else {
       try {
         const imageUrl = new URL(ogImage);
-        const expectedPath = `/og-${l}-20261103.png`;
+        const expectedPath = `/og-${l}-20261105.jpg`;
         if (imageUrl.pathname !== expectedPath) issues.push("Unexpected share image: " + url);
         const imageFile = path.join(root, expectedPath);
         if (!(await exists(imageFile))) {
           issues.push("Missing share image: " + url);
         } else {
+          if ((await stat(imageFile)).size >= 600000) issues.push("Share image too large: " + url);
           const image = await sharp(imageFile).metadata();
-          if (image.format !== "png" || getMeta("og:image:type") !== "image/png")
+          if (image.format !== "jpeg" || getMeta("og:image:type") !== "image/jpeg")
             issues.push("Share image format mismatch: " + url);
           if (
             Number(getMeta("og:image:width")) !== image.width ||
@@ -107,8 +108,8 @@ for (const f of [
   "sitemap.xml",
   "robots.txt",
   "404.html",
-  "og-ar-20261103.png",
-  "og-en-20261103.png",
+  "og-ar-20261105.jpg",
+  "og-en-20261105.jpg",
 ])
   if (!(await exists(path.join(root, f)))) issues.push("Missing " + f);
 const xml = await readFile(path.join(root, "sitemap.xml"), "utf8");
