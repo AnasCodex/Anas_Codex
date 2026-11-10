@@ -35,6 +35,7 @@
   --error: #ffb5b7;
   --success: #b4c6ff;
   --field-line: #747e92;
+  --scroll-thumb: #65738e;
   --section-blue: #b4c6ff;
   --section-ink: #101219;
   --hero-glow: #2d4778;
@@ -56,6 +57,7 @@
   --error: #aa2637;
   --success: #345ab0;
   --field-line: #727d8f;
+  --scroll-thumb: #74829b;
   --section-blue: #d7e0f0;
   --section-ink: #192439;
   --hero-glow: #c3d1ed;
@@ -66,6 +68,39 @@
 }
 html {
   scroll-behavior: smooth;
+}
+@media (any-pointer: fine) and (forced-colors: none) {
+  @supports selector(html::-webkit-scrollbar) {
+    html::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    html::-webkit-scrollbar-track {
+      background: var(--paper);
+    }
+    html::-webkit-scrollbar-thumb {
+      border: 3px solid transparent;
+      border-radius: 999px;
+      background: linear-gradient(
+        var(--scroll-thumb),
+        color-mix(in srgb, var(--scroll-thumb), var(--blue) 70%)
+      ) padding-box;
+    }
+    html::-webkit-scrollbar-thumb:hover,
+    html::-webkit-scrollbar-thumb:active {
+      border-width: 2px;
+      background: linear-gradient(
+        color-mix(in srgb, var(--scroll-thumb), var(--blue) 35%),
+        var(--blue)
+      ) padding-box;
+    }
+  }
+  @supports not selector(html::-webkit-scrollbar) {
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: var(--scroll-thumb) var(--paper);
+    }
+  }
 }
 :where(#main-content, #selected, #contact, #expertise, #project-evidence) {
   scroll-margin-block-start: calc(var(--masthead-height) + 12px);
@@ -650,9 +685,17 @@ html[lang="ar"] .hero-portrait-wrap .portrait-arrow {
   gap: 40px;
   writing-mode: vertical-rl;
   font-family: var(--font-en), sans-serif;
-  font-size: 9px;
-  letter-spacing: 0.16em;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.12em;
   color: var(--muted);
+}
+html[lang="ar"] .hero-spine {
+  font-family: var(--font-ar), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: normal;
 }
 .hero-note {
   position: absolute;
