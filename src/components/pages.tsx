@@ -3,17 +3,14 @@ import { Arrow, Pin } from "./icons";
 import { Play } from "lucide-react";
 import { ButtonLink, PageIntro, ProjectPicture, SectionLabel } from "./shared";
 import { ProjectExplorer } from "./project-explorer";
-import { CopyEmail } from "./interactions";
 import {
   categoryLabel,
   availability,
   aiWorkflow,
   bio,
   designWorkflow,
-  expertise,
   featured,
   href,
-  profile,
   projectSummary,
   projects,
   text,
@@ -25,8 +22,9 @@ import { JsonLd, siteUrl } from "@/lib/seo";
 
 export { Home } from "./home";
 import { Journey } from "./sections";
-import { ContactForm } from "./contact-form";
+export { ContactPage } from "./contact";
 import { Capabilities } from "./capabilities";
+import { SkillGroups } from "./skill-badge";
 import { ProjectVideo } from "./project-video";
 
 export function ProjectsPage({ locale: l }: { locale: Locale }) {
@@ -60,8 +58,8 @@ export function AboutPage({ locale: l }: { locale: Locale }) {
       <section className="container about-page">
         <div className="about-portrait">
           <img
-            src="/media/portrait.webp"
-            srcSet="/media/portrait-360.webp 360w, /media/portrait-720.webp 720w"
+            src="/media/portrait-studio-720.webp"
+            srcSet="/media/portrait-studio-360.webp 360w, /media/portrait-studio-720.webp 720w"
             sizes="(max-width: 767px) 90vw, 38vw"
             width="900"
             height="900"
@@ -192,16 +190,9 @@ export function ExpertisePage({ locale: l }: { locale: Locale }) {
       <section className="container expertise-page">
         <Capabilities locale={l} />
         <div className="tools-note">
-          <span className="code-bracket">&lt;/&gt;</span>
-          <div>
-            <h3>{text(l, "أدوات أخرى أستخدمها", "Also in the toolkit")}</h3>
-            <p>
-              {text(
-                l,
-                "Node.js وExpress وMySQL وMongoDB، إلى جانب أدوات التطوير والتصميم التالية.",
-                "Node.js, Express, MySQL, and MongoDB, alongside the following development and design tools.",
-              )}
-            </p>
+          <h2>{text(l, "أدوات وتقنيات أستخدمها", "Tools & technologies I use")}</h2>
+          <SkillGroups locale={l} />
+          <div className="tools-note-copy">
             <p>{aiWorkflow(l)}</p>
             <p>{designWorkflow(l)}</p>
           </div>
@@ -246,16 +237,7 @@ export function ResumePage({ locale: l }: { locale: Locale }) {
         <Journey locale={l} />
         <div className="resume-section">
           <SectionLabel number="02">{text(l, "المهارات التقنية", "TECHNICAL SKILLS")}</SectionLabel>
-          {expertise.map((e) => (
-            <div className="resume-skills" key={e.n}>
-              <h3>{e.name[l]}</h3>
-              <div className="tags" dir="ltr">
-                {e.tools.map((t) => (
-                  <span key={t}>{t}</span>
-                ))}
-              </div>
-            </div>
-          ))}
+          <SkillGroups locale={l} />
         </div>
         <div className="resume-section">
           <SectionLabel number="03">
@@ -275,76 +257,6 @@ export function ResumePage({ locale: l }: { locale: Locale }) {
             ))}
           </div>
         </div>
-      </section>
-    </>
-  );
-}
-
-export function ContactPage({ locale: l }: { locale: Locale }) {
-  return (
-    <>
-      <PageIntro
-        locale={l}
-        number="05"
-        label={text(l, "التواصل", "CONTACT")}
-        title={text(l, "كل تجربة جيدة تبدأ بمحادثة.", "Good things start with a conversation.")}
-        description={text(
-          l,
-          "لديك فرصة عمل، أو مشروع يستحق العناية؟ يسعدني أن أسمع منك.",
-          "Have an opportunity or a project that deserves care? I'd love to hear about it.",
-        )}
-      />
-      <section className="container contact-page">
-        <div className="contact-main">
-          <SectionLabel number="01">{text(l, "اكتب لي مباشرة", "DROP ME A LINE")}</SectionLabel>
-          <a className="contact-email" href={`mailto:${profile.email}`} dir="ltr">
-            anas.coding404
-            <br />
-            @gmail.com
-            <Arrow />
-          </a>
-          <CopyEmail locale={l} />
-          <p>{availability(l)}</p>
-          <p>
-            <Pin />
-            {text(l, "مقيم في الرياض، المملكة العربية السعودية", "Based in Riyadh, Saudi Arabia")}
-          </p>
-        </div>
-        <div className="contact-options">
-          {[
-            [text(l, "اتصال مباشر", "Call me"), "+966 57 398 4094", `tel:${profile.phone}`],
-            [text(l, "لنتواصل مهنيًا", "Connect professionally"), "LinkedIn", profile.linkedin],
-            [text(l, "استكشف الكود", "Explore the code"), "GitHub", profile.github],
-            [
-              text(l, "راسلني عبر واتساب", "Message on WhatsApp"),
-              "WhatsApp · +966 57 398 4094",
-              profile.whatsapp,
-            ],
-            [text(l, "على يوتيوب", "On YouTube"), "@AnasCodex", profile.youtube],
-          ].map(([label, name, url]) => (
-            <a
-              key={name}
-              href={url}
-              {...(url.startsWith("https") ? { target: "_blank", rel: "noreferrer" } : {})}
-            >
-              <span>{label}</span>
-              <strong dir="ltr">{name}</strong>
-              <Arrow />
-            </a>
-          ))}
-        </div>
-      </section>
-      <section className="container standalone-form">
-        <ContactForm locale={l} />
-      </section>
-      <section className="container contact-resume">
-        <span>
-          {text(l, "تبحث عن ملخص سريع لخبرتي؟", "Looking for a quick overview of my experience?")}
-        </span>
-        <Link className="text-link" href={href(l, "resume")}>
-          {text(l, "تصفّح السيرة الذاتية", "Read my resume")}
-          <Arrow />
-        </Link>
       </section>
     </>
   );
@@ -392,7 +304,13 @@ export function ProjectDetail({ project: p, locale: l }: { project: Project; loc
             )}
           </div>
         </div>
-        <p className="project-lead">{projectSummary(p, l)}</p>
+        <p className="project-lead">
+          {projectSummary(p, l)}{" "}
+          <a href="#project-evidence" className="text-link">
+            {text(l, "شاهد لقطات التنفيذ أدناه", "See the implementation screenshots below")}{" "}
+            <Arrow down />
+          </a>
+        </p>
         <div className="project-facts">
           <div>
             <span>{text(l, "التخصص", "DISCIPLINE")}</span>
@@ -405,11 +323,7 @@ export function ProjectDetail({ project: p, locale: l }: { project: Project; loc
                 ? text(l, "مطوّر Next.js", "Next.js Developer")
                 : documented
                   ? text(l, "تطوير الموقع بالكامل", "Complete website development")
-                  : text(
-                      l,
-                      "تطوير الواجهات · أرشيف الأعمال",
-                      "Interface development · Work archive",
-                    )}
+                  : text(l, "واجهة موثّقة بالصور", "Interface documented in screenshots")}
             </strong>
           </div>
           <div>
@@ -426,7 +340,7 @@ export function ProjectDetail({ project: p, locale: l }: { project: Project; loc
         className={`container project-gallery project-${p.slug}`}
         aria-label={text(l, "صور وتسجيلات المشروع", "Project images and recordings")}
       >
-        <figure className="project-hero-capture">
+        <figure className="project-hero-capture" id="project-evidence">
           <div className="browser-dots" aria-hidden="true">
             <i />
             <i />
@@ -438,6 +352,7 @@ export function ProjectDetail({ project: p, locale: l }: { project: Project; loc
             locale={l}
             priority
             transition
+            sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1100px) calc(100vw - 72px), (max-width: 1792px) calc(100vw - 112px), 1680px"
             index={p.assets.length > 1 ? 1 : 0}
           />
         </figure>
@@ -525,7 +440,15 @@ export function ProjectDetail({ project: p, locale: l }: { project: Project; loc
           name: p.name[l],
           description: projectSummary(p, l),
           url: siteUrl + href(l, `projects/${p.slug}`),
-          creator: { "@id": `${siteUrl}/#anas` },
+          ...(documented || p.slug === "jeetroom"
+            ? {
+                contributor: {
+                  "@type": "Role",
+                  roleName: p.slug === "jeetroom" ? "Next.js Developer" : "Website developer",
+                  contributor: { "@id": `${siteUrl}/#anas` },
+                },
+              }
+            : {}),
           image: siteUrl + p.assets[0].base + "-1120.webp",
           inLanguage: l,
         }}

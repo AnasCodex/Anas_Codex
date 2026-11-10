@@ -13,11 +13,8 @@ import {
   Plus,
   Minus,
 } from "lucide-react";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
 import { text, type Locale } from "@/lib/i18n";
-import { aiWorkflow, designWorkflow } from "@/lib/content";
-gsap.registerPlugin(useGSAP);
+import { aiWorkflow, designWorkflow } from "@/lib/workflows";
 const skills = [
   {
     icon: CodeXml,
@@ -117,27 +114,6 @@ export function Capabilities({ locale: l }: { locale: Locale }) {
   const [active, setActive] = useState(0);
   const root = useRef<HTMLDivElement>(null);
   const id = useId();
-  const { contextSafe } = useGSAP({ scope: root });
-  const animateIcon = contextSafe((element: HTMLElement) => {
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    gsap.fromTo(
-      element.querySelector(".capability-icon"),
-      { rotation: -12, scale: 0.85 },
-      { rotation: 0, scale: 1, duration: 0.55, ease: "back.out(2)", overwrite: true },
-    );
-  });
-  useGSAP(
-    () => {
-      if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      gsap.from(".capability-body:not([hidden]) .capability-inner", {
-        y: 12,
-        opacity: 0.2,
-        duration: 0.4,
-        clearProps: "all",
-      });
-    },
-    { scope: root, dependencies: [active], revertOnUpdate: true },
-  );
   return (
     <div className="capabilities container" ref={root}>
       <div className="capability-art" aria-hidden="true">
@@ -168,14 +144,12 @@ export function Capabilities({ locale: l }: { locale: Locale }) {
                   aria-expanded={active === i}
                   aria-controls={`${id}-panel-${i}`}
                   onClick={() => setActive(active === i ? -1 : i)}
-                  onPointerEnter={(e) => animateIcon(e.currentTarget)}
-                  onFocus={(e) => animateIcon(e.currentTarget)}
                 >
                   <span className="mono">{String(i + 1).padStart(2, "0")}</span>
                   <span className="capability-icon">
                     <Icon size={25} strokeWidth={1.4} />
                   </span>
-                  <span>{l === "ar" ? skill.ar : skill.en}</span>
+                  <span className="capability-title">{l === "ar" ? skill.ar : skill.en}</span>
                   {active === i ? <Minus size={18} /> : <Plus size={18} />}
                 </button>
               </h3>

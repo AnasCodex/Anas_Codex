@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { Arrow, Logo } from "./icons";
 import { Film } from "lucide-react";
-import { href, profile, text, categoryLabel, type Locale, type Project } from "@/lib/content";
+import { DeferredImage } from "./deferred-image";
+import { href, profile, text, categoryLabel, type Locale } from "@/lib/i18n";
+import type {Project} from "@/lib/content";
 
 export function ButtonLink({
   children,
@@ -67,6 +69,7 @@ export function ProjectPicture({
   priority = false,
   locale: l = "en",
   sizes = "(max-width: 767px) 90vw, 45vw",
+  defer = false,
 }: {
   project: Project;
   full?: boolean;
@@ -75,10 +78,12 @@ export function ProjectPicture({
   locale?: Locale;
   sizes?: string;
   transition?: boolean;
+  defer?: boolean;
 }) {
   const a = p.assets[index];
+  const Image = defer ? DeferredImage : "img";
   const picture = (
-    <img
+    <Image
       src={`${a.base}-${full ? "full" : "1120"}.webp`}
       srcSet={
         full

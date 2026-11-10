@@ -2,17 +2,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
 import { href, profile, text, type Locale } from "@/lib/i18n";
 import { Arrow, Logo } from "./icons";
 import { ThemeToggle } from "./theme-toggle";
-gsap.registerPlugin(useGSAP);
 export function Navigation({ locale: l }: { locale: Locale }) {
   const path = usePathname();
+  const masthead = useRef<HTMLElement>(null);
   const dialog = useRef<HTMLDialogElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
-  const { contextSafe } = useGSAP();
   const links = [
     ["", text(l, "البداية", "Home")],
     ["projects", text(l, "الأعمال", "Work")],
@@ -26,33 +23,41 @@ export function Navigation({ locale: l }: { locale: Locale }) {
     dialog.current?.showModal();
     document.body.style.overflow = "hidden";
     toggle.current?.setAttribute("aria-expanded", "true");
-    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      contextSafe(() => {
-        gsap.fromTo(
-          dialog.current,
-          { clipPath: "inset(0 0 100% 0)" },
-          { clipPath: "inset(0 0 0% 0)", duration: 0.5, ease: "power3.inOut" },
-        );
-        gsap.fromTo(
-          ".menu-link",
-          { yPercent: 70, opacity: 0 },
-          {
-            yPercent: 0,
-            opacity: 1,
-            stagger: 0.045,
-            duration: 0.5,
-            delay: 0.15,
-            ease: "power3.out",
-          },
-        );
-      })();
-    }
   }
   function closeMenu() {
     dialog.current?.close();
     document.body.style.overflow = "";
     toggle.current?.setAttribute("aria-expanded", "false");
   }
+  useEffect(() => {
+    const header = masthead.current;
+    if (!header) return;
+    const topZone = 120;
+    const directionThreshold = 12;
+    let pivot = Math.max(0, window.scrollY);
+    let hidden = false;
+    header.removeAttribute("data-nav-hidden");
+
+    function trackScroll() {
+      const y = Math.max(0, window.scrollY);
+      const previous = hidden;
+      if (y <= topZone || dialog.current?.open) {
+        hidden = false;
+        pivot = y;
+      } else {
+        // Ignore small direction changes from the trackpad or touch inertia.
+        pivot = hidden ? Math.max(pivot, y) : Math.min(pivot, y);
+        if (Math.abs(y - pivot) >= directionThreshold) {
+          hidden = !hidden;
+          pivot = y;
+        }
+      }
+      if (previous !== hidden) header?.toggleAttribute("data-nav-hidden", hidden);
+    }
+
+    window.addEventListener("scroll", trackScroll, { passive: true });
+    return () => window.removeEventListener("scroll", trackScroll);
+  }, [path]);
   useEffect(
     () => () => {
       document.body.style.overflow = "";
@@ -61,46 +66,48 @@ export function Navigation({ locale: l }: { locale: Locale }) {
   );
   return (
     <>
-      <header className="site-header container">
-        <Link
-          href={href(l)}
-          className="brand"
-          aria-label={text(l, "ANAS CODEX — الرئيسية", "ANAS CODEX — Home")}
-        >
-          <Logo />
-          <span dir="ltr">
-            ANAS <span className="brand-light">CODEX</span>
-          </span>
-        </Link>
-        <span className="header-status">
-          <span className="status-dot" />
-          {text(l, "متاح للعمل فورًا", "AVAILABLE IMMEDIATELY")}
-        </span>
-        <div className="header-actions">
-          <ThemeToggle locale={l} />
-          <a
-            href={other}
-            className="language"
-            hrefLang={l === "ar" ? "en" : "ar"}
-            aria-label={text(l, "EN — Switch to English", "عربي — التبديل إلى العربية")}
+      <header className="site-masthead" ref={masthead}>
+        <div className="site-header container">
+          <Link
+            href={href(l)}
+            className="brand"
+            aria-label={text(l, "ANAS CODEX — الرئيسية", "ANAS CODEX — Home")}
           >
-            {l === "ar" ? "EN" : "عربي"}
-          </a>
-          <button
-            ref={toggle}
-            className="menu-toggle"
-            aria-label={text(l, "فتح القائمة", "Open menu")}
-            aria-expanded="false"
-            aria-haspopup="dialog"
-            aria-controls="navigation-dialog"
-            onClick={openMenu}
-          >
-            <span>{text(l, "القائمة", "MENU")}</span>
-            <span className="menu-lines" aria-hidden="true">
-              <i />
-              <i />
+            <Logo />
+            <span dir="ltr">
+              ANAS <span className="brand-light">CODEX</span>
             </span>
-          </button>
+          </Link>
+          <span className="header-status">
+            <span className="status-dot" />
+            {text(l, "متاح للعمل فورًا", "AVAILABLE IMMEDIATELY")}
+          </span>
+          <div className="header-actions">
+            <ThemeToggle locale={l} />
+            <a
+              href={other}
+              className="language"
+              hrefLang={l === "ar" ? "en" : "ar"}
+              aria-label={text(l, "EN — Switch to English", "عربي — التبديل إلى العربية")}
+            >
+              {l === "ar" ? "EN" : "عربي"}
+            </a>
+            <button
+              ref={toggle}
+              className="menu-toggle"
+              aria-label={text(l, "فتح القائمة", "Open menu")}
+              aria-expanded="false"
+              aria-haspopup="dialog"
+              aria-controls="navigation-dialog"
+              onClick={openMenu}
+            >
+              <span>{text(l, "القائمة", "MENU")}</span>
+              <span className="menu-lines" aria-hidden="true">
+                <i />
+                <i />
+              </span>
+            </button>
+          </div>
         </div>
       </header>
       <dialog

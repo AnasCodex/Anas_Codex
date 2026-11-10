@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { Arrow } from "./icons";
-import { ButtonLink, ProjectPicture, SectionLabel } from "./shared";
+import { ProjectPicture, SectionLabel } from "./shared";
 import { SceneShell } from "./scene-shell";
-import { ContactForm } from "./contact-form";
+import { HomeContact } from "./contact";
 import { Journey } from "./sections";
 import { WorkReel } from "./work-reel";
 import { Capabilities } from "./capabilities";
 import { ProjectVideo } from "./project-video";
-import { availability, bio, href, profile, projects, text, type Locale } from "@/lib/content";
+import { ScrollMotion } from "./scroll-motion";
+import { bio, href, projects, text, type Locale } from "@/lib/content";
 import { JsonLd, siteUrl } from "@/lib/seo";
 
 export function Home({ locale: l }: { locale: Locale }) {
@@ -15,6 +16,7 @@ export function Home({ locale: l }: { locale: Locale }) {
   const second = projects.find((p) => p.slug === "kripton")!;
   return (
     <>
+      <ScrollMotion />
       <section className="hero" aria-labelledby="hero-heading">
         <div className="hero-stage">
           <div className="hero-grid" aria-hidden="true" />
@@ -44,14 +46,14 @@ export function Home({ locale: l }: { locale: Locale }) {
             <picture>
               <source
                 type="image/avif"
-                srcSet="/media/portrait-cutout-360.avif 360w, /media/portrait-cutout-720.avif 720w"
-                sizes="(max-width: 767px) 85vw, 38vw"
+                srcSet="/media/portrait-cutout-360.avif 360w, /media/portrait-cutout-560.avif 560w, /media/portrait-cutout-640.avif 640w, /media/portrait-cutout-720.avif 720w"
+                sizes="(max-width: 499px) 88vw, (max-width: 767px) 390px, (max-width: 1100px) 48vw, (min-width: 1527px) 580px, 38vw"
               />
               <img
                 className="hero-portrait"
                 src="/media/portrait-cutout-720.webp"
-                srcSet="/media/portrait-cutout-360.webp 360w, /media/portrait-cutout-720.webp 720w"
-                sizes="(max-width: 767px) 85vw, 38vw"
+                srcSet="/media/portrait-cutout-360.webp 360w, /media/portrait-cutout-560.webp 560w, /media/portrait-cutout-640.webp 640w, /media/portrait-cutout-720.webp 720w"
+                sizes="(max-width: 499px) 88vw, (max-width: 767px) 390px, (max-width: 1100px) 48vw, (min-width: 1527px) 580px, 38vw"
                 width="737"
                 height="678"
                 fetchPriority="high"
@@ -62,8 +64,12 @@ export function Home({ locale: l }: { locale: Locale }) {
                 )}
               />
             </picture>
-            <figcaption dir="ltr">
-              <span className="status-dot" /> {text(l, "أنس ناصر", "ANAS NASER")} <span>↗</span>
+            <figcaption dir={l === "ar" ? "rtl" : "ltr"}>
+              <span className="status-dot" aria-hidden="true" />
+              <span className="portrait-name">{text(l, "أنس ناصر", "ANAS NASER")}</span>
+              <span className="portrait-arrow" aria-hidden="true">
+                ↗
+              </span>
             </figcaption>
           </figure>
           <div className="hero-sculpture">
@@ -76,8 +82,8 @@ export function Home({ locale: l }: { locale: Locale }) {
             <p>
               {text(
                 l,
-                "أفكّر بمنطق الكود.\nوأصنع بعين إبداعية.",
-                "Thinking in code.\nCreating with character.",
+                "من فكرة إلى تجربة ويب،\nبعناية في كل تفصيلة.",
+                "From idea to web experience.\nCare in every detail.",
               )}
             </p>
             <span className="mono" dir="ltr">
@@ -86,9 +92,9 @@ export function Home({ locale: l }: { locale: Locale }) {
           </div>
           <a className="hero-cta" href="#selected" data-magnetic>
             <span>
-              {text(l, "ادخل إلى", "ENTER THE")}
+              {text(l, "شاهد", "VIEW MY")}
               <br />
-              <strong>{text(l, "عالمي", "WORK")}</strong>
+              <strong>{text(l, "أعمالي", "WORK")}</strong>
             </span>
             <Arrow down />
           </a>
@@ -134,7 +140,7 @@ export function Home({ locale: l }: { locale: Locale }) {
         </div>
         <article className="feature-cinema">
           <Link className="cinema-image" href={href(l, `projects/${first.slug}`)}>
-            <ProjectPicture project={first} locale={l} index={1} sizes="100vw" />
+            <ProjectPicture project={first} locale={l} index={1} sizes="100vw" defer />
             <span className="cinema-corner mono">01 / MOTION LAB</span>
             <span className="cinema-open">
               <Arrow />
@@ -207,7 +213,12 @@ export function Home({ locale: l }: { locale: Locale }) {
             </div>
           </div>
         </article>
-        <WorkReel locale={l} />
+        <WorkReel
+          locale={l}
+          collection={["theqa", "emad", "bawsala", "gaming-experience"].map((slug) =>
+            projects.find((p) => p.slug === slug)!,
+          )}
+        />
         <Link className="archive-portal container" href={href(l, "projects")}>
           <span className="mono">{text(l, "أرشيف الأعمال", "THE COMPLETE ARCHIVE")}</span>
           <strong>
@@ -335,8 +346,8 @@ export function Home({ locale: l }: { locale: Locale }) {
           </h2>
           <figure className="human-portrait">
             <img
-              src="/media/portrait-720.webp"
-              srcSet="/media/portrait-360.webp 360w, /media/portrait-720.webp 720w"
+              src="/media/portrait-studio-720.webp"
+              srcSet="/media/portrait-studio-360.webp 360w, /media/portrait-studio-720.webp 720w"
               sizes="(max-width:767px) 64vw, 30vw"
               width="900"
               height="900"
@@ -380,53 +391,7 @@ export function Home({ locale: l }: { locale: Locale }) {
         </div>
         <Journey locale={l} />
       </section>
-      <section className="contact-section" id="contact">
-        <div className="contact-headline container">
-          <SectionLabel number="06">
-            {text(l, "الفصل القادم، معك", "THE NEXT CHAPTER IS OURS")}
-          </SectionLabel>
-          <h2>
-            {text(l, "لنصنع", "LET’S MAKE")}
-            <br />
-            <span>{text(l, "شيئًا يستحق.", "IT MATTER.")}</span>
-            <Arrow />
-          </h2>
-        </div>
-        <div className="container contact-composition">
-          <div className="contact-invitation">
-            <span className="status-line">
-              <span className="status-dot" />
-              {availability(l)}
-            </span>
-            <p>
-              {text(
-                l,
-                "فكرة طموحة، مشروع جديد، أو فرصة عمل.\nأخبرني بما تفكر فيه، ولنبدأ من هناك.",
-                "An ambitious idea, a new project, or an opportunity.\nTell me what you have in mind. We’ll start there.",
-              )}
-            </p>
-            <a href={`mailto:${profile.email}`} className="contact-direct" dir="ltr">
-              {profile.email}
-              <Arrow />
-            </a>
-            <div className="contact-socials">
-              <a href={profile.linkedin} target="_blank" rel="noreferrer">
-                LinkedIn ↗
-              </a>
-              <a href={profile.github} target="_blank" rel="noreferrer">
-                GitHub ↗
-              </a>
-              <a href={profile.whatsapp} target="_blank" rel="noreferrer">
-                WhatsApp ↗
-              </a>
-            </div>
-            <ButtonLink to={`/resume/Anas_Naser_CV_${l.toUpperCase()}.pdf`} secondary download>
-              {text(l, "تحميل السيرة الذاتية", "Download resume")}
-            </ButtonLink>
-          </div>
-          <ContactForm locale={l} />
-        </div>
-      </section>
+      <HomeContact locale={l} />
       <JsonLd
         data={{
           "@context": "https://schema.org",

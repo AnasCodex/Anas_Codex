@@ -14,6 +14,10 @@ const paths = [
   ...projects.map((p) => "projects/" + p.slug),
 ];
 const root = path.resolve("out");
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://anas-codex.vercel.app").replace(
+  /\/$/,
+  "",
+);
 const issues = [];
 let checkedLinks = 0,
   schemas = 0;
@@ -37,6 +41,13 @@ for (const l of ["ar", "en"])
       issues.push("Language/direction: " + url);
     if ((html.match(/<h1[\s>]/g) || []).length !== 1) issues.push("Expected one H1: " + url);
     if (!/<link[^>]+rel="canonical"/.test(html)) issues.push("Missing canonical: " + url);
+    if (!html.includes(`rel="canonical" href="${siteUrl}${url}"`))
+      issues.push("Incorrect canonical: " + url);
+    for (const language of ["ar", "en", "x-default"]) {
+      const target = `${siteUrl}${language === "en" ? "/en" : ""}/${p}${p ? "/" : ""}`;
+      if (!html.includes(`hrefLang="${language}" href="${target}"`))
+        issues.push(`Incorrect reciprocal hreflang ${language}: ${url}`);
+    }
     for (const alt of ["ar", "en", "x-default"])
       if (!html.includes(`hrefLang="${alt}"`)) issues.push("Missing hreflang " + alt + ": " + url);
     if (!/<meta name="description" content="[^\"]+"/.test(html))
@@ -50,7 +61,10 @@ for (const l of ["ar", "en"])
     } else {
       try {
         const imageUrl = new URL(ogImage);
-        const expectedPath = `/og-${l}-20261105.jpg`;
+        const shareSlug = p.startsWith("projects/") ? p.slice("projects/".length) : "";
+        const expectedPath = ["motion-lab", "kripton", "jeetroom"].includes(shareSlug)
+          ? `/media/og-${shareSlug}-20261110.jpg`
+          : `/og-${l}-20261105.jpg`;
         if (imageUrl.pathname !== expectedPath) issues.push("Unexpected share image: " + url);
         const imageFile = path.join(root, expectedPath);
         if (!(await exists(imageFile))) {
@@ -82,7 +96,27 @@ for (const l of ["ar", "en"])
     }
     for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
       try {
-        JSON.parse(m[1]);
+        const schema = JSON.parse(m[1]);
+        if (
+          schema["@type"] === "Person" &&
+          (schema["@id"] !== `${siteUrl}/#anas` || schema.url !== siteUrl)
+        )
+          issues.push("Inconsistent Person identity: " + url);
+        if (schema["@type"] === "CreativeWork") {
+          const project = projects.find((project) => p === `projects/${project.slug}`);
+          if (schema.creator) issues.push("Unscoped creator attribution: " + url);
+          if (!project?.documented && schema.contributor)
+            issues.push("Unverified project role: " + url);
+          if (
+            !html.includes(
+              schema.description
+                .replaceAll("&", "&amp;")
+                .replaceAll("'", "&#x27;")
+                .replaceAll('"', "&quot;"),
+            )
+          )
+            issues.push("CreativeWork description differs from visible text: " + url);
+        }
         schemas++;
       } catch {
         issues.push("Invalid JSON-LD: " + url);

@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Play, Pause, Film } from "lucide-react";
 import { text, type Locale } from "@/lib/i18n";
 import type { ProjectVideo as Video } from "@/lib/content";
+import { DeferredImage } from "./deferred-image";
 
 export function ProjectVideo({
   video,
@@ -76,7 +77,7 @@ export function ProjectVideo({
       className={`project-video ${preview ? "video-preview" : "video-full"} ${started && !failed ? "has-started" : ""}`}
       style={{ aspectRatio: `${video.width} / ${video.height}` }}
     >
-      <img
+      <DeferredImage
         className="video-poster"
         src={video.poster}
         width={video.width}

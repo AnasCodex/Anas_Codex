@@ -142,7 +142,7 @@ try {
         }
         if (route === "contact/") {
           await expect(page.locator('a[href="tel:+966573984094"]')).toHaveCount(1);
-          await expect(page.locator('a[href="https://wa.me/966573984094"]')).toHaveCount(1);
+          await expect(page.locator('a[href="https://wa.me/967730110440"]')).toHaveCount(1);
           expect(
             await page.locator('a[href="mailto:anas.coding404@gmail.com"]').count(),
           ).toBeGreaterThan(0);

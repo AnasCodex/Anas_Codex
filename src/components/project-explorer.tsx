@@ -84,7 +84,10 @@ export function ProjectExplorer({ locale: l }: { locale: Locale }) {
           <input
             value={query}
             onChange={(e) => {
-              capture();
+              // Search changes immediately; measuring every card per keystroke
+              // competes with typing and has no useful spatial continuity.
+              Flip.killFlipsOf(root.current?.querySelectorAll(".project-card") || [], true);
+              flipState.current = null;
               setQuery(e.target.value);
               setLimit(12);
             }}

@@ -55,11 +55,6 @@ for (const locale of ["ar", "en"]) {
   await page.goto(url + (locale === "en" ? "/en/contact/" : "/contact/"));
   const form = page.locator(".contact-form"),
     submit = form.locator('button[type="submit"]');
-  await expect(form.locator(".form-setup")).toHaveCount(0);
-  assert(
-    (await form.locator(".form-setup").count()) === 0,
-    `${locale}: isolated QA configuration recognized`,
-  );
   for (const [name, value] of [
     ["user_name", "Local QA"],
     ["user_email", "qa@example.com"],

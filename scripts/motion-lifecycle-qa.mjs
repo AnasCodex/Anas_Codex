@@ -30,6 +30,7 @@ await page.route("**/_next/static/chunks/" + fixture.name, async (r) => {
 });
 const counts = [];
 await page.goto(url);
+await page.mouse.wheel(0, 120);
 await expect.poll(() => page.evaluate(() => window.__qaTriggerCount?.() || 0)).toBeGreaterThan(0);
 const baseline = await page.evaluate(() => window.__qaTriggerCount());
 for (let i = 0; i < 3; i++) {
@@ -40,6 +41,7 @@ for (let i = 0; i < 3; i++) {
   counts.push({ route: "contact", count: await page.evaluate(() => window.__qaTriggerCount()) });
   await page.locator(".site-header .brand").click();
   await page.waitForURL(url + "/");
+  await page.mouse.wheel(0, 120);
   await expect.poll(() => page.evaluate(() => window.__qaTriggerCount())).toBe(baseline);
 }
 await page.emulateMedia({ reducedMotion: "reduce" });

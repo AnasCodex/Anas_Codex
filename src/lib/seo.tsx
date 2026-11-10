@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { availability, bio, href, profile, text, type Locale } from "./content";
+import { availability, bio, expertise, href, profile, text, type Locale } from "./content";
 
 export const siteUrl = (
   process.env.NEXT_PUBLIC_SITE_URL || "https://anas-codex.vercel.app"
@@ -37,7 +37,9 @@ export function metadata(l: Locale, name: string, path = "", description?: strin
     );
   const url = siteUrl + href(l, path);
   // Use a new URL when replacing artwork so preview caches can fetch the new image.
-  const shareImage = `/og-${l}-20261105.jpg`;
+  const shareSlug = path.startsWith("projects/") ? path.slice("projects/".length) : "";
+  const projectShare = ["motion-lab", "kripton", "jeetroom"].includes(shareSlug);
+  const shareImage = projectShare ? `/media/og-${shareSlug}-20261110.jpg` : `/og-${l}-20261105.jpg`;
   return {
     title: `${name} | Anas Codex`,
     description: desc,
@@ -70,7 +72,7 @@ export function metadata(l: Locale, name: string, path = "", description?: strin
           width: 1200,
           height: 630,
           type: "image/jpeg",
-          alt: text(
+          alt: projectShare ? name : text(
             l,
             "ANAS CODEX · أنس ناصر، مطوّر مواقع ومتاجر إلكترونية",
             "ANAS CODEX · Anas Naser, Web & E-Commerce Developer",
@@ -107,16 +109,8 @@ export function PersonSchema() {
         jobTitle: "Senior Web & E-Commerce Developer",
         description: `${bio("en")} ${availability("en")}`,
         knowsAbout: [
-          "React",
-          "Next.js",
-          "WordPress",
-          "Salla",
+          ...expertise.flatMap((area) => area.tools),
           "AI-Assisted Development",
-          "Vibe Coding",
-          "Claude",
-          "ChatGPT",
-          "Canva",
-          "Adobe Photoshop",
           "Technical team coordination",
         ],
         url: siteUrl,
@@ -124,7 +118,7 @@ export function PersonSchema() {
         telephone: profile.phone,
         image: siteUrl + "/media/portrait.webp",
         address: { "@type": "PostalAddress", addressLocality: "Riyadh", addressCountry: "SA" },
-        sameAs: [profile.linkedin, profile.github, profile.youtube],
+        sameAs: [profile.linkedin, profile.github, profile.youtube, profile.instagram],
         knowsLanguage: ["Arabic", "English"],
       }}
     />

@@ -1,16 +1,31 @@
 "use client";
 import { useId, useRef, useState, type FormEvent } from "react";
-import { profile, text, type Locale } from "@/lib/i18n";
-import { Arrow } from "./icons";
+import { text, type Locale } from "@/lib/i18n";
+import {
+  AlignLeft,
+  AtSign,
+  CircleAlert,
+  CircleCheck,
+  LockKeyhole,
+  Mail,
+  MessageSquareText,
+  Send,
+  UserRound,
+} from "lucide-react";
 
 const config = {
   service: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
   template: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
   publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
 };
-const configured = Boolean(config.service && config.template && config.publicKey);
 const fields = ["user_name", "user_email", "subject", "message"] as const;
 type Field = (typeof fields)[number];
+const fieldIcons = {
+  user_name: UserRound,
+  user_email: AtSign,
+  subject: AlignLeft,
+  message: MessageSquareText,
+};
 export function ContactForm({ locale: l }: { locale: Locale }) {
   const id = useId();
   const formRef = useRef<HTMLFormElement>(null);
@@ -109,54 +124,69 @@ export function ContactForm({ locale: l }: { locale: Locale }) {
       noValidate
       onSubmit={submit}
       aria-busy={status === "sending"}
+      aria-labelledby={`${id}-form-title`}
     >
       <div className="form-topline">
-        <span className="mono">{text(l, "لنتواصل / 01—04", "LET’S CONNECT / 01—04")}</span>
-        <span>{text(l, "جميع الحقول مطلوبة", "All fields required")}</span>
+        <span className="contact-tile-icon">
+          <Mail size={20} aria-hidden="true" />
+        </span>
+        <div>
+          <p id={`${id}-form-title`}>
+            {text(l, "لنتواصل", "LET’S CONNECT")} / <bdi dir="ltr">01—04</bdi>
+          </p>
+          <p>{text(l, "جميع الحقول مطلوبة", "All fields required")}</p>
+        </div>
       </div>
       <div className="form-grid">
-        {fields.map((field, i) => (
-          <div
-            className={`form-field ${field === "message" || field === "subject" ? "field-wide" : ""}`}
-            key={field}
-          >
-            <label htmlFor={`${id}-${field}`}>
-              <span className="mono">0{i + 1}</span>
-              {labels[field]}
-            </label>
-            {field === "message" ? (
-              <textarea
-                id={`${id}-${field}`}
-                name={field}
-                rows={4}
-                maxLength={5000}
-                minLength={10}
-                required
-                aria-invalid={Boolean(errors[field])}
-                aria-describedby={errors[field] ? `${id}-${field}-error` : undefined}
-              />
-            ) : (
-              <input
-                id={`${id}-${field}`}
-                name={field}
-                type={field === "user_email" ? "email" : "text"}
-                autoComplete={
-                  field === "user_email" ? "email" : field === "user_name" ? "name" : "off"
-                }
-                dir={field === "user_email" ? "ltr" : undefined}
-                maxLength={field === "subject" ? 200 : 150}
-                required
-                aria-invalid={Boolean(errors[field])}
-                aria-describedby={errors[field] ? `${id}-${field}-error` : undefined}
-              />
-            )}
-            {errors[field] && (
-              <p className="field-error" id={`${id}-${field}-error`}>
-                {errors[field]}
-              </p>
-            )}
-          </div>
-        ))}
+        {fields.map((field, i) => {
+          const Icon = fieldIcons[field];
+          return (
+            <div
+              className={`form-field ${field === "message" || field === "subject" ? "field-wide" : ""}`}
+              key={field}
+            >
+              <label htmlFor={`${id}-${field}`}>
+                <Icon size={16} aria-hidden="true" />
+                {labels[field]}
+                <span className="mono" aria-hidden="true">
+                  0{i + 1}
+                </span>
+              </label>
+              {field === "message" ? (
+                <textarea
+                  id={`${id}-${field}`}
+                  name={field}
+                  dir="auto"
+                  rows={4}
+                  maxLength={5000}
+                  minLength={10}
+                  required
+                  aria-invalid={Boolean(errors[field])}
+                  aria-describedby={errors[field] ? `${id}-${field}-error` : undefined}
+                />
+              ) : (
+                <input
+                  id={`${id}-${field}`}
+                  name={field}
+                  type={field === "user_email" ? "email" : "text"}
+                  autoComplete={
+                    field === "user_email" ? "email" : field === "user_name" ? "name" : "off"
+                  }
+                  dir={field === "user_email" ? "ltr" : "auto"}
+                  maxLength={field === "subject" ? 200 : 150}
+                  required
+                  aria-invalid={Boolean(errors[field])}
+                  aria-describedby={errors[field] ? `${id}-${field}-error` : undefined}
+                />
+              )}
+              {errors[field] && (
+                <p className="field-error" id={`${id}-${field}-error`}>
+                  {errors[field]}
+                </p>
+              )}
+            </div>
+          );
+        })}
       </div>
       <div className="honeypot" aria-hidden="true">
         <label htmlFor={`${id}-website`}>
@@ -164,29 +194,27 @@ export function ContactForm({ locale: l }: { locale: Locale }) {
         </label>
         <input id={`${id}-website`} name="company_website" tabIndex={-1} autoComplete="off" />
       </div>
-      {!configured && (
-        <p className="form-setup">
-          {text(
-            l,
-            "الإرسال عبر النموذج غير متاح حاليًا. يمكنك التواصل عبر البريد:",
-            "The form is currently unavailable. You can reach me by email:",
-          )}{" "}
-          <a href={`mailto:${profile.email}`} dir="ltr">
-            {profile.email}
-          </a>
-        </p>
-      )}
       <div className={`form-notice ${status}`} role="status" aria-live="polite" aria-atomic="true">
-        {notice}
+        {notice && (
+          <>
+            {status === "success" ? (
+              <CircleCheck size={18} aria-hidden="true" />
+            ) : (
+              <CircleAlert size={18} aria-hidden="true" />
+            )}
+            <span>{notice}</span>
+          </>
+        )}
       </div>
       <div className="form-bottom">
         <button className="button" type="submit" disabled={status === "sending"}>
           {status === "sending"
             ? text(l, "جارٍ الإرسال…", "Sending…")
             : text(l, "أرسل الرسالة", "Send message")}
-          <Arrow />
+          <Send size={18} aria-hidden="true" />
         </button>
         <p>
+          <LockKeyhole size={15} aria-hidden="true" />
           {text(
             l,
             "تُستخدم بياناتك للرد على رسالتك فقط.",
