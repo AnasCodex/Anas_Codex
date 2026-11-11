@@ -92,7 +92,7 @@ export default function MotionDirector() {
             gsap.fromTo(
               ".cinema-image",
               {
-                clipPath: desktop ? "inset(0 16% 0 16%)" : "inset(0 4% 0 4%)",
+                clipPath: desktop ? "inset(0 16% 0 16%)" : "inset(0)",
                 rotateX: desktop ? 12 : 0,
               },
               {
@@ -109,7 +109,7 @@ export default function MotionDirector() {
             );
             gsap.fromTo(
               ".cinema-image>img",
-              { scale: 1.14 },
+              { scale: desktop ? 1.14 : 1 },
               {
                 scale: 1,
                 ease: "none",

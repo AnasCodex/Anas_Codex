@@ -2832,11 +2832,11 @@ html[dir="rtl"] .reel-index button[aria-pressed="true"] { box-shadow: inset -3px
   }
   .cinema-image {
     margin-inline: 0;
-    aspect-ratio: 1.25;
+    aspect-ratio: 16/9;
   }
   .cinema-image > img {
-    object-fit: cover;
-    object-position: 40% center;
+    object-fit: contain;
+    object-position: center;
   }
   .cinema-corner {
     left: 12px;
@@ -2973,7 +2973,11 @@ html[dir="rtl"] .reel-index button[aria-pressed="true"] { box-shadow: inset -3px
     width: 100%;
   }
   .reel-active-image {
-    aspect-ratio: 1.4;
+    aspect-ratio: 16/9;
+  }
+  .reel-active-image img {
+    object-fit: contain;
+    object-position: center;
   }
   .reel-description {
     gap: 20px;
